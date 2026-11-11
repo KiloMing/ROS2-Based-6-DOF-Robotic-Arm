@@ -1,0 +1,644 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="my_robot_arm">
+
+  <!-- ========================================= -->
+  <!-- 1. Robot Parameters                       -->
+  <!-- ========================================= -->
+
+  <!-- 临时尺寸，单位 m -->
+  <xacro:property name="base_height" value="0.08"/>
+  <xacro:property name="shoulder_height" value="0.10"/>
+  <xacro:property name="upper_arm_length" value="0.20"/>
+  <xacro:property name="forearm_length" value="0.18"/>
+
+  <xacro:property name="wrist_pitch_length" value="0.06"/>
+  <xacro:property name="wrist_rotation_length" value="0.06"/>
+
+  <xacro:property name="gripper_palm_length" value="0.035"/>
+  <xacro:property name="gripper_finger_length" value="0.075"/>
+  <xacro:property name="gripper_finger_width" value="0.012"/>
+
+  <!-- 单侧夹指最大行程 30 mm -->
+  <xacro:property name="gripper_half_open_max" value="0.030"/>
+
+
+  <!-- ========================================= -->
+  <!-- 2. Base Link                              -->
+  <!-- ========================================= -->
+
+  <link name="base_link">
+
+    <visual>
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
+
+      <geometry>
+        <cylinder radius="0.07"
+                  length="${base_height}"/>
+      </geometry>
+
+      <material name="base_gray">
+        <color rgba="0.35 0.35 0.35 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
+
+      <geometry>
+        <cylinder radius="0.07"
+                  length="${base_height}"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+
+  <!-- ========================================= -->
+  <!-- 3. Base Joint                             -->
+  <!-- ========================================= -->
+
+  <!-- ID 000: 绕 Z 轴旋转 -->
+  <joint name="base_joint" type="revolute">
+
+    <parent link="base_link"/>
+    <child link="shoulder_mount"/>
+
+    <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>
+
+    <axis xyz="0 0 1"/>
+
+    <!-- raw: 500~2500, zero: 1500 -->
+    <limit lower="-2.35619449"
+           upper="2.35619449"
+           effort="10.0"
+           velocity="1.0"/>
+
+  </joint>
+
+
+  <!-- ========================================= -->
+  <!-- 4. Shoulder Mount                         -->
+  <!-- ========================================= -->
+
+  <link name="shoulder_mount">
+
+    <visual>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+
+      <geometry>
+        <box size="0.08 0.08 0.10"/>
+      </geometry>
+
+      <material name="mount_yellow">
+        <color rgba="0.95 0.72 0.12 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+
+      <geometry>
+        <box size="0.08 0.08 0.10"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+
+  <!-- ========================================= -->
+  <!-- 5. Shoulder Joint                         -->
+  <!-- ========================================= -->
+
+  <!-- ID 001: 绕局部 Y 轴旋转 -->
+  <joint name="shoulder_joint" type="revolute">
+
+    <parent link="shoulder_mount"/>
+    <child link="upper_arm_link"/>
+
+    <origin xyz="0 0 ${shoulder_height}"
+            rpy="0 0 0"/>
+
+    <axis xyz="0 1 0"/>
+
+    <!-- raw: 700~2300, direction: -1 -->
+    <limit lower="-1.88495559"
+           upper="1.88495559"
+           effort="10.0"
+           velocity="1.0"/>
+
+  </joint>
+
+
+  <!-- ========================================= -->
+  <!-- 6. Upper Arm Link                         -->
+  <!-- ========================================= -->
+
+  <link name="upper_arm_link">
+
+    <visual>
+      <origin xyz="0 0 ${upper_arm_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <cylinder radius="0.025"
+                  length="${upper_arm_length}"/>
+      </geometry>
+
+      <material name="arm_yellow">
+        <color rgba="0.95 0.72 0.12 1.0"/>
+      </material>
+    </visual>
+
+    <!-- collision 与 visual 并列 -->
+    <collision>
+      <origin xyz="0 0 ${upper_arm_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <cylinder radius="0.025"
+                  length="${upper_arm_length}"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+
+  <!-- ========================================= -->
+  <!-- 7. Elbow Joint                            -->
+  <!-- ========================================= -->
+
+  <!-- ID 002: 绕局部 Y 轴旋转 -->
+  <joint name="elbow_joint" type="revolute">
+
+    <parent link="upper_arm_link"/>
+    <child link="forearm_link"/>
+
+    <origin xyz="0 0 ${upper_arm_length}"
+            rpy="0 0 0"/>
+
+    <axis xyz="0 1 0"/>
+
+    <limit lower="-2.35619449"
+           upper="2.35619449"
+           effort="10.0"
+           velocity="1.0"/>
+
+  </joint>
+
+
+  <!-- ========================================= -->
+  <!-- 8. Forearm Link                           -->
+  <!-- ========================================= -->
+
+  <link name="forearm_link">
+
+    <visual>
+      <origin xyz="0 0 ${forearm_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <cylinder radius="0.020"
+                  length="${forearm_length}"/>
+      </geometry>
+
+      <material name="forearm_blue">
+        <color rgba="0.15 0.45 0.90 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 ${forearm_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <cylinder radius="0.020"
+                  length="${forearm_length}"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+
+  <!-- ========================================= -->
+  <!-- 9. Wrist Pitch Joint                      -->
+  <!-- ========================================= -->
+
+  <!-- ID 003: 绕局部 Y 轴俯仰 -->
+  <joint name="wrist_pitch_joint" type="revolute">
+
+    <parent link="forearm_link"/>
+    <child link="wrist_pitch_link"/>
+
+    <origin xyz="0 0 ${forearm_length}"
+            rpy="0 0 0"/>
+
+    <axis xyz="0 1 0"/>
+
+    <limit lower="-2.35619449"
+           upper="2.35619449"
+           effort="10.0"
+           velocity="1.0"/>
+
+  </joint>
+
+
+  <!-- ========================================= -->
+  <!-- 10. Wrist Pitch Link                      -->
+  <!-- ========================================= -->
+
+  <link name="wrist_pitch_link">
+
+    <visual>
+      <origin xyz="0 0 ${wrist_pitch_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <cylinder radius="0.025"
+                  length="${wrist_pitch_length}"/>
+      </geometry>
+
+      <material name="wrist_green">
+        <color rgba="0.15 0.75 0.35 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 ${wrist_pitch_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <cylinder radius="0.025"
+                  length="${wrist_pitch_length}"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+
+  <!-- ========================================= -->
+  <!-- 11. Wrist Rotation Joint                  -->
+  <!-- ========================================= -->
+
+  <!-- ID 004: 绕腕部局部 Z 轴旋转 -->
+  <joint name="wrist_rotation_joint" type="revolute">
+
+    <parent link="wrist_pitch_link"/>
+    <child link="wrist_rotation_link"/>
+
+    <origin xyz="0 0 ${wrist_pitch_length}"
+            rpy="0 0 0"/>
+
+    <axis xyz="0 0 1"/>
+
+    <limit lower="-2.35619449"
+           upper="2.35619449"
+           effort="10.0"
+           velocity="1.0"/>
+
+  </joint>
+
+
+  <!-- ========================================= -->
+  <!-- 12. Wrist Rotation Link                   -->
+  <!-- ========================================= -->
+
+  <link name="wrist_rotation_link">
+
+    <!-- 腕部主体 -->
+    <visual>
+      <origin xyz="0 0 ${wrist_rotation_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <cylinder radius="0.018"
+                  length="${wrist_rotation_length}"/>
+      </geometry>
+
+      <material name="wrist_gray">
+        <color rgba="0.45 0.45 0.50 1.0"/>
+      </material>
+    </visual>
+
+    <!-- 用于观察腕部旋转的方向标记 -->
+    <visual>
+      <origin xyz="0.025 0 0.035"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <box size="0.035 0.012 0.012"/>
+      </geometry>
+
+      <material name="rotation_marker_red">
+        <color rgba="0.95 0.15 0.15 1.0"/>
+      </material>
+    </visual>
+
+    <!-- 碰撞模型只包含腕部主体 -->
+    <collision>
+      <origin xyz="0 0 ${wrist_rotation_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <cylinder radius="0.018"
+                  length="${wrist_rotation_length}"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+
+  <!-- ========================================= -->
+  <!-- 13. Tool Frame                            -->
+  <!-- ========================================= -->
+
+  <joint name="tool0_joint" type="fixed">
+
+    <parent link="wrist_rotation_link"/>
+    <child link="tool0"/>
+
+    <origin xyz="0 0 ${wrist_rotation_length}"
+            rpy="0 0 0"/>
+
+  </joint>
+
+  <link name="tool0"/>
+
+
+  <!-- ========================================= -->
+  <!-- 14. Gripper Mount                         -->
+  <!-- ========================================= -->
+
+  <joint name="gripper_mount_joint" type="fixed">
+
+    <parent link="wrist_rotation_link"/>
+    <child link="gripper_palm_link"/>
+
+    <origin xyz="0 0 ${wrist_rotation_length}"
+            rpy="0 0 0"/>
+
+  </joint>
+
+
+  <!-- ========================================= -->
+  <!-- 15. Gripper Palm                          -->
+  <!-- ========================================= -->
+
+  <link name="gripper_palm_link">
+
+    <visual>
+      <origin xyz="0 0 ${gripper_palm_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <box size="0.055 0.050 ${gripper_palm_length}"/>
+      </geometry>
+
+      <material name="gripper_gray">
+        <color rgba="0.45 0.45 0.48 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 ${gripper_palm_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <box size="0.055 0.050 ${gripper_palm_length}"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+
+  <!-- ========================================= -->
+  <!-- 16. Left Finger Joint                     -->
+  <!-- ========================================= -->
+
+  <joint name="left_finger_joint" type="prismatic">
+
+    <parent link="gripper_palm_link"/>
+    <child link="left_finger_link"/>
+
+    <!-- 闭合时夹指内侧表面位于中心线 -->
+    <origin
+      xyz="0 ${gripper_finger_width / 2} ${gripper_palm_length}"
+      rpy="0 0 0"/>
+
+    <!-- 左夹指沿 +Y 方向张开 -->
+    <axis xyz="0 1 0"/>
+
+    <!-- 单侧行程: 0~30 mm -->
+    <limit lower="0.0"
+           upper="${gripper_half_open_max}"
+           effort="10.0"
+           velocity="0.02"/>
+
+  </joint>
+
+
+  <!-- ========================================= -->
+  <!-- 17. Left Finger Link                      -->
+  <!-- ========================================= -->
+
+  <link name="left_finger_link">
+
+    <visual>
+      <origin xyz="0 0 ${gripper_finger_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <box size="0.015 ${gripper_finger_width}
+                   ${gripper_finger_length}"/>
+      </geometry>
+
+      <material name="finger_blue">
+        <color rgba="0.15 0.45 0.95 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 ${gripper_finger_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <box size="0.015 ${gripper_finger_width}
+                   ${gripper_finger_length}"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+
+  <!-- ========================================= -->
+  <!-- 18. Right Finger Joint                    -->
+  <!-- ========================================= -->
+
+  <joint name="right_finger_joint" type="prismatic">
+
+    <parent link="gripper_palm_link"/>
+    <child link="right_finger_link"/>
+
+    <origin
+      xyz="0 ${-gripper_finger_width / 2} ${gripper_palm_length}"
+      rpy="0 0 0"/>
+
+    <axis xyz="0 1 0"/>
+
+    <!-- 右夹指镜像左夹指运动 -->
+    <mimic joint="left_finger_joint"
+           multiplier="-1.0"
+           offset="0.0"/>
+
+    <limit lower="${-gripper_half_open_max}"
+           upper="0.0"
+           effort="10.0"
+           velocity="0.02"/>
+
+  </joint>
+
+
+  <!-- ========================================= -->
+  <!-- 19. Right Finger Link                     -->
+  <!-- ========================================= -->
+
+  <link name="right_finger_link">
+
+    <visual>
+      <origin xyz="0 0 ${gripper_finger_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <box size="0.015 ${gripper_finger_width}
+                   ${gripper_finger_length}"/>
+      </geometry>
+
+      <material name="finger_blue">
+        <color rgba="0.15 0.45 0.95 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 ${gripper_finger_length / 2}"
+              rpy="0 0 0"/>
+
+      <geometry>
+        <box size="0.015 ${gripper_finger_width}
+                   ${gripper_finger_length}"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+
+  <!-- ========================================= -->
+  <!-- 20. Grasp Frame                           -->
+  <!-- ========================================= -->
+
+  <joint name="grasp_frame_joint" type="fixed">
+
+    <parent link="gripper_palm_link"/>
+    <child link="grasp_frame"/>
+
+    <origin
+      xyz="0 0 ${gripper_palm_length + gripper_finger_length / 2}"
+      rpy="0 0 0"/>
+
+  </joint>
+
+  <link name="grasp_frame"/>
+
+
+  <!-- ========================================= -->
+  <!-- 21. ros2_control Macro                    -->
+  <!-- ========================================= -->
+
+  <xacro:macro name="mock_revolute_joint"
+               params="joint_name initial">
+
+    <joint name="${joint_name}">
+
+      <command_interface name="position"/>
+
+      <state_interface name="position">
+        <param name="initial_value">${initial}</param>
+      </state_interface>
+
+      <state_interface name="velocity"/>
+
+    </joint>
+
+  </xacro:macro>
+
+
+  <!-- ========================================= -->
+  <!-- 22. ros2_control Mock Hardware            -->
+  <!-- ========================================= -->
+
+  <ros2_control name="ArmMockSystem" type="system">
+
+    <hardware>
+      <plugin>mock_components/GenericSystem</plugin>
+      <param name="calculate_dynamics">true</param>
+    </hardware>
+
+
+    <!-- Base: startup raw = 1600 -->
+    <xacro:mock_revolute_joint
+      joint_name="base_joint"
+      initial="0.235619449"/>
+
+
+    <!-- Shoulder: startup raw = 1900 -->
+    <xacro:mock_revolute_joint
+      joint_name="shoulder_joint"
+      initial="-0.942477796"/>
+
+
+    <!-- Elbow: startup raw = 2100 -->
+    <xacro:mock_revolute_joint
+      joint_name="elbow_joint"
+      initial="1.413716694"/>
+
+
+    <!-- Wrist Pitch: startup raw = 800 -->
+    <xacro:mock_revolute_joint
+      joint_name="wrist_pitch_joint"
+      initial="1.649336144"/>
+
+
+    <!-- Wrist Rotation: startup raw = 1500 -->
+    <xacro:mock_revolute_joint
+      joint_name="wrist_rotation_joint"
+      initial="0.0"/>
+
+
+    <!-- Gripper: raw 1500 = 35 mm total opening -->
+    <!-- 单侧夹指初始位移 17.5 mm -->
+    <joint name="left_finger_joint">
+
+      <command_interface name="position"/>
+
+      <state_interface name="position">
+        <param name="initial_value">0.0175</param>
+      </state_interface>
+
+      <state_interface name="velocity"/>
+
+    </joint>
+
+
+    <!-- Mimic follower -->
+    <joint name="right_finger_joint" mimic="true">
+
+      <state_interface name="position">
+        <param name="initial_value">-0.0175</param>
+      </state_interface>
+
+      <state_interface name="velocity"/>
+
+    </joint>
+
+  </ros2_control>
+
+</robot>

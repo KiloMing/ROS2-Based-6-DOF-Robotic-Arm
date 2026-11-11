@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: arm_description
+    relative_path: urdf/arm.urdf.xacro
+  srdf:
+    relative_path: config/my_robot_arm.srdf
+  package_settings:
+    author_name: MingKilo
+    author_email: 3402684841@qq.com
+    generated_timestamp: 1794382821
