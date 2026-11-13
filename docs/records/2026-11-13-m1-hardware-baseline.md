@@ -61,10 +61,10 @@ YH-K32 的 USB 上位机指令与总线舵机自身查询指令是**两层接口
 2. 确认当前 USB 设备确实是 YH-K32 所在 CH340，且不存在其他程序抢占串口。
 3. 安装 `pyserial` 后，使用仓库 `tools/servo_query_probe.py` 发出**仅查询**的 ID/模式/位置命令，保存 TX/RX 原始日志：
    ```bash
-   python3 -m pip install pyserial
+   sudo apt install python3-serial
    python3 tools/servo_query_probe.py --port /dev/ttyUSB0 --ids 000 001 002 003 004 005
    ```
-   如果 pyserial 已安装则无需重复安装。根据实际枚举替换端口；首次可只测一个已确认 ID。
+   如果 pyserial 已安装则无需重复安装；也可在独立虚拟环境使用 pip。根据实际枚举替换端口；首次可只测一个已确认 ID。
 4. 通过 YH-K32 实际 RX 结果判断：`#000P1500!` 等有效值 / 仅回显查询指令 / 无应答 / 杂乱数据 / 其他板级反馈。**任何一次有数据不等于反馈真实**，需要改变舵机位置后读数相应变化的复核；运动测试另行制定安全步骤。
 5. 如果无应答，先核对原厂固件是否具备 USB 读回/透传；不要以超时作为舵机没有位置传感能力的证据。
 
