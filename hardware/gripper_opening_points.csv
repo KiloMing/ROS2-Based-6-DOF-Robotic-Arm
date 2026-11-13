@@ -1,0 +1,9 @@
+servo_id,raw,measured_total_opening_mm,source,verified_in_current_session
+005,1100,60,2026-11-10 historical user measurement,no
+005,1200,55,2026-11-10 historical user measurement,no
+005,1300,50,2026-11-10 historical user measurement,no
+005,1400,45,2026-11-10 historical user measurement,no
+005,1500,35,2026-11-10 historical user measurement,no
+005,1600,20,2026-11-10 historical user measurement,no
+005,1700,5,2026-11-10 historical user measurement,no
+005,1770,0,2026-11-10 correction of closed end,no
