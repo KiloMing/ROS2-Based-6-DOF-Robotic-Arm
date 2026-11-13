@@ -6,7 +6,7 @@ torque-release, reset, or configuration commands. Opening a serial port
 may still reset a controller: check stored startup actions and support
 the mechanism before use.
 
-Prerequisite: pip install pyserial
+Prerequisite (Ubuntu): sudo apt install python3-serial
 Example:
     python3 tools/servo_query_probe.py --port /dev/ttyUSB0 --ids 000 001
 
@@ -21,7 +21,7 @@ import time
 try:
     import serial
 except ImportError:
-    raise SystemExit("pyserial missing: install it with 'python3 -m pip install pyserial'")
+    raise SystemExit("pyserial missing: on Ubuntu use 'sudo apt install python3-serial'")
 
 QUERY_SUFFIXES = (("id", "PID"), ("mode", "PMOD"), ("position", "PRAD"))
 
