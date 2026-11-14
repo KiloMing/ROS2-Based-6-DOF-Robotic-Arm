@@ -1,0 +1,5 @@
+<library path="arm_hardware">
+  <class name="arm_hardware/ArmSystem" type="arm_hardware::ArmSystem" base_class_type="hardware_interface::SystemInterface">
+    <description>YH-K32 serial actuator driver; motion disabled by default</description>
+  </class>
+</library>

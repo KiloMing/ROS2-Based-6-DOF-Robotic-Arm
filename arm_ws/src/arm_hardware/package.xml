@@ -1,0 +1,9 @@
+<package format="3">
+  <name>arm_hardware</name><version>0.1.0</version>
+  <description>YH-K32 real bus servo SystemInterface</description>
+  <maintainer email="3402684841@qq.com">MingKilo</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>hardware_interface</depend><depend>pluginlib</depend><depend>rclcpp</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>
