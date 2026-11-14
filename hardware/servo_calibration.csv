@@ -1,5 +1,5 @@
 joint,servo_id,raw_startup_history,raw_zero_history,raw_positive_to_ros_sign,raw_min_history,raw_max_history,ros_lower_limit_rad_in_model,ros_upper_limit_rad_in_model,servo_mode_measured,raw_feedback_verified,mechanical_limit_verified,notes
-base_joint,000,1600,1500,+1,500,2500,-2.35619449,2.35619449,,,,"Historical zero corrected from 1600 to 1500; listed min/max are software/protocol hints not certified mechanical limits"
+base_joint,000,1600,1600,+1,500,2500,-2.35619449,2.35619449,,,,"Zero=1600 confirmed by user 2026-11-14; raw min/max are historical values, NOT measured safe mechanical limits"
 shoulder_joint,001,1900,1500,-1,700,2300,-1.88495559,1.88495559,,,,"Need recheck current mode and 700-2300 joint-specific limit"
 elbow_joint,002,2100,1500,+1,500,2500,-2.35619449,2.35619449,,,,"Historical raw range; mechanical fit and repeatability pending"
 wrist_pitch_joint,003,800,1500,-1,500,2500,-2.35619449,2.35619449,,,,"History says increasing raw means ROS negative"

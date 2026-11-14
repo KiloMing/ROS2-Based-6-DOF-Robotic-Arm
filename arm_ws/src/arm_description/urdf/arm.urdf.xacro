@@ -3,6 +3,11 @@
        name="my_robot_arm">
 
   <!-- ========================================= -->
+  <xacro:arg name="hardware_mode" default="mock"/>
+  <xacro:arg name="serial_port" default="/dev/ttyUSB0"/>
+  <xacro:arg name="enable_motion" default="false"/>
+  <xacro:arg name="limits_verified" default="false"/>
+  <xacro:property name="hardware_mode" value="$(arg hardware_mode)"/>
   <!-- 1. Robot Parameters                       -->
   <!-- ========================================= -->
 
@@ -592,11 +597,24 @@
        URDF不执行硬件raw转换；硬件驱动必须采用同一零位、比例和方向。
        005 raw1500约35mm开口，简化平移模型为左右各17.5mm；
        真实齿轮连杆的raw到开口映射仍待标定。 -->
-  <ros2_control name="ArmMockSystem" type="system">
-
+  <ros2_control name="ArmSystem" type="system">
     <hardware>
-      <plugin>mock_components/GenericSystem</plugin>
-      <param name="calculate_dynamics">true</param>
+      <xacro:if value="${hardware_mode == 'real'}">
+        <plugin>arm_hardware/ArmSystem</plugin>
+        <param name="port">$(arg serial_port)</param>
+        <param name="baud">115200</param>
+        <param name="timeout_ms">40</param>
+        <param name="max_feedback_age_ms">1200</param>
+        <param name="max_step_raw">8</param>
+        <param name="max_tracking_raw">80</param>
+        <param name="move_time_ms">180</param>
+        <param name="enable_motion">$(arg enable_motion)</param>
+        <param name="limits_verified">$(arg limits_verified)</param>
+      </xacro:if>
+      <xacro:unless value="${hardware_mode == 'real'}">
+        <plugin>mock_components/GenericSystem</plugin>
+        <param name="calculate_dynamics">true</param>
+      </xacro:unless>
     </hardware>
 
 
