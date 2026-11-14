@@ -6,22 +6,13 @@
   <!-- 1. Robot Parameters                       -->
   <!-- ========================================= -->
 
-  <!-- 单位 m。以下 CAD 尺寸来自对话转录，属于候选几何，未独立复核原始 CAD。
-       暂沿用竖直零位、共线 Z 偏移；轴线方向、横向偏移及关节编号对应待实物验证。
-       shoulder_height 暂解释为 base_joint 到 shoulder_joint 的相对高度，
-       因此肩轴距 base_link 原点为 30.0 + 38.4 = 68.4 mm；基准待核实。 -->
-  <xacro:property name="base_height" value="0.0300"/>
-  <xacro:property name="shoulder_height" value="0.0384"/>
-  <xacro:property name="upper_arm_length" value="0.1051"/>
-  <xacro:property name="forearm_length" value="0.0872"/>
+  <!-- 临时尺寸，单位 m -->
+  <xacro:property name="base_height" value="0.08"/>
+  <xacro:property name="shoulder_height" value="0.10"/>
+  <xacro:property name="upper_arm_length" value="0.20"/>
+  <xacro:property name="forearm_length" value="0.18"/>
 
-  <xacro:property name="wrist_pitch_length" value="0.0695"/>
-  <!-- 以下腕部/夹爪内部尺寸保留旧模型占位值，未经测量确认。
-       A 为候选 004 输出轴参考点，C 为夹指前端；实测 AC=110 mm。
-       AC 是长度约束，不是 wrist_rotation_length，也不是 TCP 或已知 XYZ。
-       旧模型 A 到指尖的轴向总长仍为 60+35+75=170 mm，与实测不符；
-       待确认 A 的坐标基准、测量方向和内部尺寸后再重建，禁止用于精确抓取。 -->
-  <xacro:property name="measured_a_to_fingertip_c" value="0.110"/>
+  <xacro:property name="wrist_pitch_length" value="0.06"/>
   <xacro:property name="wrist_rotation_length" value="0.06"/>
 
   <xacro:property name="gripper_palm_length" value="0.035"/>
@@ -39,7 +30,7 @@
   <link name="base_link">
 
     <visual>
-      <origin xyz="0 0 ${base_height / 2}" rpy="0 0 0"/>
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
 
       <geometry>
         <cylinder radius="0.07"
@@ -52,7 +43,7 @@
     </visual>
 
     <collision>
-      <origin xyz="0 0 ${base_height / 2}" rpy="0 0 0"/>
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
 
       <geometry>
         <cylinder radius="0.07"
@@ -77,10 +68,9 @@
 
     <axis xyz="0 0 1"/>
 
-    <!-- 000: raw1600 = q0。沿用旧模型正方向及 0.00235619449 rad/raw，
-         raw500..2500 对应下列非对称限位；比例及硬件转换需实机复核。 -->
-    <limit lower="-2.591813939"
-           upper="2.120575041"
+    <!-- raw: 500~2500, zero: 1500 -->
+    <limit lower="-2.35619449"
+           upper="2.35619449"
            effort="10.0"
            velocity="1.0"/>
 
@@ -94,10 +84,10 @@
   <link name="shoulder_mount">
 
     <visual>
-      <origin xyz="0 0 ${shoulder_height / 2}" rpy="0 0 0"/>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
 
       <geometry>
-        <box size="0.08 0.08 ${shoulder_height}"/>
+        <box size="0.08 0.08 0.10"/>
       </geometry>
 
       <material name="mount_yellow">
@@ -106,10 +96,10 @@
     </visual>
 
     <collision>
-      <origin xyz="0 0 ${shoulder_height / 2}" rpy="0 0 0"/>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
 
       <geometry>
-        <box size="0.08 0.08 ${shoulder_height}"/>
+        <box size="0.08 0.08 0.10"/>
       </geometry>
     </collision>
 
@@ -362,7 +352,6 @@
   <!-- 13. Tool Frame                            -->
   <!-- ========================================= -->
 
-  <!-- tool0 为旧模型安装占位坐标系，非标定 TCP。 -->
   <joint name="tool0_joint" type="fixed">
 
     <parent link="wrist_rotation_link"/>
@@ -546,7 +535,6 @@
   <!-- 20. Grasp Frame                           -->
   <!-- ========================================= -->
 
-  <!-- grasp_frame 为旧模型夹指中部占位，实际 TCP 的 XYZ 尚未测得。 -->
   <joint name="grasp_frame_joint" type="fixed">
 
     <parent link="gripper_palm_link"/>
@@ -587,11 +575,6 @@
   <!-- 22. ros2_control Mock Hardware            -->
   <!-- ========================================= -->
 
-  <!-- 000 raw1600 为0度；001至004 raw1500为0度。
-       零位定义不等于启动姿态：保留001 raw1900、002 raw2100、003 raw800。
-       URDF不执行硬件raw转换；硬件驱动必须采用同一零位、比例和方向。
-       005 raw1500约35mm开口，简化平移模型为左右各17.5mm；
-       真实齿轮连杆的raw到开口映射仍待标定。 -->
   <ros2_control name="ArmMockSystem" type="system">
 
     <hardware>
@@ -603,7 +586,7 @@
     <!-- Base: startup raw = 1600 -->
     <xacro:mock_revolute_joint
       joint_name="base_joint"
-      initial="0.0"/>
+      initial="0.235619449"/>
 
 
     <!-- Shoulder: startup raw = 1900 -->
