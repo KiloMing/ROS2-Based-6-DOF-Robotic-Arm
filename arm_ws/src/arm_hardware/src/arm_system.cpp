@@ -4,6 +4,7 @@
 #include <cerrno>
 #include <cstring>
 #include <fcntl.h>
+#include <sys/file.h>
 #include <iomanip>
 #include <memory>
 #include <poll.h>
@@ -62,6 +63,10 @@ std::string prefix(int id) {
   o << '#' << std::setw(3) << std::setfill('0') << id << 'P';
   return o.str();
 }
+class PositionTimeout : public std::runtime_error {
+public:
+  using std::runtime_error::runtime_error;
+};
 class Serial {
 public:
   ~Serial() { close_port(); }
@@ -69,7 +74,13 @@ public:
   void open_port(const std::string& name) {
     close_port();
     fd_=::open(name.c_str(),O_RDWR|O_NOCTTY|O_NONBLOCK|O_CLOEXEC);
-    if(fd_<0) throw std::runtime_error("Cannot open serial device: "+name);
+    if(fd_<0) throw std::runtime_error("Cannot open serial device: "+name+": "+std::strerror(errno));
+    // Acquire before touching termios or flushing another driver's replies.
+    if (::flock(fd_, LOCK_EX | LOCK_NB) != 0) {
+      const std::string reason = std::strerror(errno);
+      close_port();
+      throw std::runtime_error("Serial device already in use or lock failed: " + name + ": " + reason);
+    }
     termios t{};
     if(::tcgetattr(fd_,&t)) {close_port();throw std::runtime_error("tcgetattr failed");}
     ::cfmakeraw(&t);
@@ -99,6 +110,20 @@ public:
     }
   }
   int position(int id,int timeout_ms) {
+    // Retry only a missing reply, never a disconnected port or write failure.
+    // Three bounded attempts; exhausted retries still deactivate the hardware.
+    for (int attempt=1; attempt<=3; ++attempt) {
+      try { return position_once(id,timeout_ms); }
+      catch (const PositionTimeout&) {
+        if (attempt==3) throw;
+        RCLCPP_WARN(rclcpp::get_logger("arm_hardware"),
+          "PRAD timeout ID %d after %d ms; retry %d/2", id, timeout_ms, attempt);
+      }
+    }
+    throw std::logic_error("Unreachable position retry state");
+  }
+private:
+  int position_once(int id,int timeout_ms) {
     if(fd_<0)throw std::runtime_error("Serial closed");
     const auto tag=prefix(id);
     ::tcflush(fd_,TCIFLUSH);
@@ -129,8 +154,9 @@ public:
         frame.clear();  // Ignore echoes; only #NNNPdddd! is accepted.
       }
     }
-    throw std::runtime_error("Missing PRAD response for ID "+std::to_string(id));
+    throw PositionTimeout("Missing PRAD response for ID "+std::to_string(id)+" (query timeout)");
   }
+public:
   void move(int id,int raw,int ms) {
     std::ostringstream o;
     o<<prefix(id)<<std::setw(4)<<std::setfill('0')<<raw
@@ -161,6 +187,8 @@ public:
       if(get("baud","115200")!="115200")throw std::runtime_error("Only 115200 baud supported");
       timeout_=std::stoi(get("timeout_ms","40"));
       max_age_=std::stoi(get("max_feedback_age_ms","1200"));
+      step_check_=get("enable_step_check","true")=="true";
+      RCLCPP_INFO(rclcpp::get_logger("arm_hardware"), "Command step check: %s", step_check_?"enabled":"disabled");
       step_=std::stoi(get("max_step_raw","8"));
       tracking_=std::stoi(get("max_tracking_raw","80"));
       duration_=std::stoi(get("move_time_ms","180"));
@@ -236,9 +264,9 @@ public:
           throw std::runtime_error("Write blocked on stale state");
         target[i]=to_raw(i,cmd_[i]);
         int delta=std::abs(target[i]-last_sent_[i]);
-        if(delta>step_)throw std::runtime_error(std::string(cal[i].name)+" command step too large");
+        if(step_check_ && delta>step_)throw std::runtime_error(command_error(i, target[i], "command step too large"));
         if(std::abs(target[i]-feedback_[i])>tracking_)
-          throw std::runtime_error(std::string(cal[i].name)+" tracking mismatch");
+          throw std::runtime_error(command_error(i, target[i], "tracking mismatch"));
         changed|=delta>=2;
       }
       if(!changed)return hardware_interface::return_type::OK;
@@ -254,6 +282,18 @@ public:
     }
   }
 private:
+  std::string command_error(size_t i, int target, const char* reason) const {
+    const auto age = std::chrono::duration_cast<std::chrono::milliseconds>(
+      Clock::now() - timestamps_[i]).count();
+    std::ostringstream out;
+    out << cal[i].name << " " << reason
+        << " target_raw=" << target << " last_sent_raw=" << last_sent_[i]
+        << " feedback_raw=" << feedback_[i]
+        << " step_raw=" << std::abs(target-last_sent_[i]) << " step_limit=" << step_
+        << " tracking_raw=" << std::abs(target-feedback_[i])
+        << " tracking_limit=" << tracking_ << " feedback_age_ms=" << age;
+    return out.str();
+  }
   double to_q(size_t i,int r)const{
     if(r<cal[i].low||r>cal[i].high)throw std::runtime_error("Feedback outside historical raw range");
     return i==5?finger_from_raw(r):cal[i].sign*(r-cal[i].zero)*rad_per_raw;
@@ -278,6 +318,7 @@ private:
     for(size_t i=0;i<6;++i){cmd_[i]=q_[i];last_sent_[i]=feedback_[i];}
     next_=0; // activation never commands movement
   }
+  bool step_check_{true};
   Serial bus_;
   std::string port_;
   std::array<double,7> q_{},v_{};

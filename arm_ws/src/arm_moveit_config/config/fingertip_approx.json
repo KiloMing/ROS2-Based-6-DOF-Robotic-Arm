@@ -1,0 +1,31 @@
+{
+  "parent_frame": "wrist_rotation_link",
+  "child_frame": "fingertip_approx",
+  "translation_m": [
+    -0.07074899728089673,
+    0.020316753226329337,
+    0.0927617639388095
+  ],
+  "quaternion_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "status": "approximate user-requested first version; orientation inherited from wrist, not measured TCP orientation",
+  "assumption": "current pose is measurement pose; 110mm forward along horizontal projection of optical Z; 30mm downward in base; no lateral offset",
+  "snapshot_stamp": {
+    "sec": 1794641369,
+    "nanosec": 432944822
+  },
+  "camera_position_base_m": [
+    0.01857745992462657,
+    0.01111853968447166,
+    0.21025688005189588
+  ],
+  "fingertip_position_base_m": [
+    0.1285072392702044,
+    0.015048375944746518,
+    0.18025688005189588
+  ]
+}

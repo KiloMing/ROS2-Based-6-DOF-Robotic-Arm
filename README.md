@@ -36,3 +36,7 @@
 实机运动尚未验收。历史原始范围不是实测安全限位，勿直接启用 `enable_motion:=true`。正式运动前要核对关节方向、反馈、软限位、支持机构和停机方案。不要同时启动 demo 和 real 的控制器。
 
 详见 [进度路线](docs/roadmap.md) 和 [实机驱动记录](docs/records/2026-11-14-real-hardware-integration.md)。
+
+## 实物控制与视觉靠近操作手册
+
+完整命令、对应代码、示范采集、标定状态及故障排查见 [视觉与机械臂操作手册](docs/vision_arm_operations.md)。

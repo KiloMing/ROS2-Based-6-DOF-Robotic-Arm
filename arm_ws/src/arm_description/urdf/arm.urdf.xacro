@@ -5,6 +5,7 @@
   <!-- ========================================= -->
   <xacro:arg name="hardware_mode" default="mock"/>
   <xacro:arg name="serial_port" default="/dev/ttyUSB0"/>
+  <xacro:arg name="enable_step_check" default="true"/>
   <xacro:arg name="enable_motion" default="false"/>
   <xacro:arg name="limits_verified" default="false"/>
   <xacro:property name="hardware_mode" value="$(arg hardware_mode)"/>
@@ -14,9 +15,10 @@
   <!-- 单位 m。以下 CAD 尺寸来自对话转录，属于候选几何，未独立复核原始 CAD。
        暂沿用竖直零位、共线 Z 偏移；轴线方向、横向偏移及关节编号对应待实物验证。
        shoulder_height 暂解释为 base_joint 到 shoulder_joint 的相对高度，
-       因此肩轴距 base_link 原点为 30.0 + 38.4 = 68.4 mm；基准待核实。 -->
+       肩轴距桌面实测为70 mm；base_link按桌面基准，偏移30+40=70 mm。 -->
   <xacro:property name="base_height" value="0.0300"/>
-  <xacro:property name="shoulder_height" value="0.0384"/>
+  <!-- User measured table to shoulder axis: 70 mm; base_link assumed at table. -->
+  <xacro:property name="shoulder_height" value="0.0400"/>
   <xacro:property name="upper_arm_length" value="0.1051"/>
   <xacro:property name="forearm_length" value="0.0872"/>
 
@@ -606,6 +608,7 @@
         <param name="timeout_ms">40</param>
         <param name="max_feedback_age_ms">1200</param>
         <param name="max_step_raw">8</param>
+        <param name="enable_step_check">$(arg enable_step_check)</param>
         <param name="max_tracking_raw">80</param>
         <param name="move_time_ms">180</param>
         <param name="enable_motion">$(arg enable_motion)</param>

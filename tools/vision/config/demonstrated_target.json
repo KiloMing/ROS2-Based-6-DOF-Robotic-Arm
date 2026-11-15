@@ -1,0 +1,51 @@
+{
+  "source_marker": 2,
+  "source_session": "20261115_183758_322713",
+  "user_confirmed_ideal_pose": true,
+  "joint_state": {
+    "header": {
+      "stamp": {
+        "sec": 1794739428,
+        "nanosec": 47388763
+      },
+      "frame_id": "base_link"
+    },
+    "name": [
+      "base_joint",
+      "elbow_joint",
+      "left_finger_joint",
+      "right_finger_joint",
+      "shoulder_joint",
+      "wrist_pitch_joint",
+      "wrist_rotation_joint"
+    ],
+    "position": [
+      -0.11074114103,
+      0.78461276517,
+      0.0175,
+      -0.0175,
+      0.86001098885,
+      0.68800879108,
+      -0.00235619449
+    ],
+    "velocity": [
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "arm_degrees": {
+    "base_joint": -6.3449999994820345,
+    "elbow_joint": 44.95499999633016,
+    "shoulder_joint": 49.2749999959775,
+    "wrist_pitch_joint": 39.419999996782,
+    "wrist_rotation_joint": -0.13499999998897946
+  },
+  "joint_age_s": 0.002,
+  "ball_age_s": 62.22,
+  "warning": "Joint demonstration only. Ball measurement stale; not a calibrated grasp transform. No automatic replay."
+}

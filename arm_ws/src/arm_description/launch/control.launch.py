@@ -24,6 +24,7 @@ def generate_launch_description():
             " hardware_mode:=", mode,
             " serial_port:=", port,
             " enable_motion:=", motion,
+            " enable_step_check:=", LaunchConfiguration("enable_step_check"),
             " limits_verified:=", verified,
         ]),
         value_type=str,
@@ -32,6 +33,7 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument("hardware_mode", default_value="mock"),
         DeclareLaunchArgument("serial_port", default_value="/dev/ttyUSB0"),
+        DeclareLaunchArgument("enable_step_check", default_value="true"),
         DeclareLaunchArgument("enable_motion", default_value="false"),
         DeclareLaunchArgument("limits_verified", default_value="false"),
         DeclareLaunchArgument("update_rate", default_value="100"),

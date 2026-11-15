@@ -1,0 +1,19 @@
+{
+  "parent_frame": "wrist_pitch_link",
+  "child_frame": "camera_color_optical_frame",
+  "translation_m": [
+    -0.03975322082681502,
+    0.011896203302547516,
+    0.05286112687450776
+  ],
+  "quaternion_xyzw": [
+    -0.019813387228117842,
+    0.06969019571467976,
+    0.711263612997768,
+    -0.6991815065726207
+  ],
+  "source_session": "20261114_144957",
+  "samples": 15,
+  "validation": "provisional; not independently validated",
+  "leave_one_out_rms_mm": 13.413554184964848
+}

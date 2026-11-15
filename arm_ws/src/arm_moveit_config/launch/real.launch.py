@@ -21,6 +21,7 @@ def generate_launch_description():
     config = (
         MoveItConfigsBuilder("my_robot_arm", package_name="arm_moveit_config")
         .robot_description(mappings={"hardware_mode": "real"})
+        .joint_limits(file_path="config/real_joint_limits.yaml")
         .to_moveit_configs()
     )
 
@@ -29,14 +30,18 @@ def generate_launch_description():
     )
     ld = LaunchDescription([
         DeclareLaunchArgument("serial_port", default_value="/dev/ttyUSB0"),
+        DeclareLaunchArgument("enable_step_check", default_value="false"),
+        DeclareLaunchArgument("enable_motion", default_value="false"),
+        DeclareLaunchArgument("limits_verified", default_value="false"),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(control),
             launch_arguments={
                 "hardware_mode": "real",
                 "serial_port": LaunchConfiguration("serial_port"),
-                "enable_motion": "false",
-                "limits_verified": "false",
-                "update_rate": "20",
+                "enable_motion": LaunchConfiguration("enable_motion"),
+                "enable_step_check": LaunchConfiguration("enable_step_check"),
+                "limits_verified": LaunchConfiguration("limits_verified"),
+                "update_rate": "50",
                 "start_rviz": "false",
             }.items(),
         ),

@@ -33,6 +33,17 @@ arm_trajectory_controller:
 
     allow_partial_joints_goal: false
 
+    # Arm endpoint tolerance: 5 degrees (radians below). Driver protections are unchanged.
+    constraints:
+      goal_time: 3.0
+      stopped_velocity_tolerance: 0.01
+      base_joint: {goal: 0.087266462600}
+      shoulder_joint: {goal: 0.087266462600}
+      elbow_joint: {goal: 0.087266462600}
+      wrist_pitch_joint: {goal: 0.087266462600}
+      wrist_rotation_joint: {goal: 0.087266462600}
+
+
 
 # 夹爪轨迹控制器
 gripper_trajectory_controller:
@@ -49,3 +60,9 @@ gripper_trajectory_controller:
       - velocity
 
     allow_partial_joints_goal: false
+
+    # Finger position is in meters.
+    constraints:
+      goal_time: 3.0
+      stopped_velocity_tolerance: 0.01
+      left_finger_joint: {goal: 0.001}

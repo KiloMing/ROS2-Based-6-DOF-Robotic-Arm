@@ -10,3 +10,7 @@ __pycache__/
 *.bag
 *.db3
 *.mcap
+
+# Local camera images, calibration samples and manual trajectory recordings
+tools/vision/captures/
+tools/vision/approach_captures/
