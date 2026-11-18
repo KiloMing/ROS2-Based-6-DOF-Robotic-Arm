@@ -123,23 +123,23 @@ python3 /home/kiloming/ROS2-Based-6-DOF-Robotic-Arm/tools/vision/approach_demons
 目标角度（度）：底座 −6.345，肩 49.275，肘 44.955，腕俯仰 39.420，腕旋转 −0.135。
 最近一次执行返回 1，肩误差 2.97°、肘误差 2.70°、底座 −0.135°，两腕约 0°。
 
-### B. 视觉点靠近（近似标定实验）
+### B. 视觉接触规划（统一入口）
 
-需要前述全部视觉与 TF 进程，以及静止目标与新鲜反馈。
+新版入口为 `tools/vision/contact_moveit.py`，完整参数和模型限制见 [接触规划说明](contact_moveit.md)。
+保留上面的固定姿态示范入口，用于重现记录姿态；它不替代实时视觉接触规划。
 
 ```bash
 source /opt/ros/jazzy/setup.bash
 source /home/kiloming/ROS2-Based-6-DOF-Robotic-Arm/arm_ws/install/setup.bash
-# 只规划，目标球表面前 5 cm
-python3 /home/kiloming/ROS2-Based-6-DOF-Robotic-Arm/tools/vision/approach_target.py --standoff 0.05
-# 执行
-python3 /home/kiloming/ROS2-Based-6-DOF-Robotic-Arm/tools/vision/approach_target.py --standoff 0.05 --execute
+# 只规划：目标为球面，最后 3 cm 为直线接近段
+python3 /home/kiloming/ROS2-Based-6-DOF-Robotic-Arm/tools/vision/contact_moveit.py
+# 重新获取目标、规划整条路径并执行一次
+python3 /home/kiloming/ROS2-Based-6-DOF-Robotic-Arm/tools/vision/contact_moveit.py --execute
 ```
 
-当前默认 standoff=0.05 m，允许 0.05–0.30 m。不可达时搜索更远停靠点，实际选择以日志为准。
-求解关节范围相对起点 ±0.45 rad，整轨迹检查 ±0.5 rad，方向变化最多30°。
-该算法优先近似指尖位置，没有完整抓取朝向约束；检测点是可见表面，不是球心。
-源码还有 `approach_once.py`（约1cm单步）、`approach_ball.py`（重复单步）、`contact_nudge.py`（1–3mm微动实验）；它们不是已验证的自动抓取方案，不作为默认执行入口。
+需要重新启动过新版模型的 MoveIt、实物驱动、相机识别、相机 TF 和坐标转换。
+不会自动替换为更远目标。逆解成功但末段路径不足 100% 时，不执行部分轨迹。
+旧版局部靠近、重复单步和微动实验入口已经移除；历史实现仍可通过 Git 查阅。
 
 ## 5. 手动示范采集
 

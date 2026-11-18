@@ -65,4 +65,5 @@ gripper_trajectory_controller:
     constraints:
       goal_time: 3.0
       stopped_velocity_tolerance: 0.01
-      left_finger_joint: {goal: 0.001}
+      # Zero disables the default goal-position tolerance check.
+      left_finger_joint: {goal: 0.0}

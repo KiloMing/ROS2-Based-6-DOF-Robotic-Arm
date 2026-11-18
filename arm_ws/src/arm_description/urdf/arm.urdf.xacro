@@ -382,6 +382,14 @@
 
   <link name="tool0"/>
 
+  <!-- Approximate wrist-fixed contact reference, NOT calibrated finger contact geometry. -->
+  <link name="contact_tcp_approx"/>
+  <joint name="contact_tcp_approx_joint" type="fixed">
+    <parent link="wrist_rotation_link"/>
+    <child link="contact_tcp_approx"/>
+    <origin xyz="-0.07074899728089673 0.020316753226329337 0.0927617639388095" rpy="0 0 0"/>
+  </joint>
+
 
   <!-- ========================================= -->
   <!-- 14. Gripper Mount                         -->
