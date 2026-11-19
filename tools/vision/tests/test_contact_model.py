@@ -34,12 +34,23 @@ class ContactModelTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             module.joint_bounds(ET.tostring(root, encoding='unicode'))
 
-    def test_reference_matches_existing_offset(self):
+    def test_contact_reference_is_on_roll_axis_and_matches_fingertips(self):
         joint = self.robot.find("joint[@name='contact_tcp_approx_joint']")
-        config = json.loads((ROOT / 'arm_ws/src/arm_moveit_config/config/fingertip_approx.json').read_text())
-        self.assertEqual(joint.find('parent').get('link'), config['parent_frame'])
-        self.assertEqual(list(map(float, joint.find('origin').get('xyz').split())), config['translation_m'])
-        self.assertEqual(joint.get('type'), 'fixed')
+        xyz = list(map(float, joint.find('origin').get('xyz').split()))
+        self.assertEqual(joint.find('parent').get('link'), 'wrist_rotation_link')
+        self.assertEqual(xyz[:2], [0., 0.])
+        self.assertAlmostEqual(xyz[2], .110)
+        # The reference must agree with the existing model, not an unrelated
+        # camera-derived estimate. This does not validate physical dimensions.
+        def z(name):
+            return float(self.robot.find(f"joint[@name='{name}']/origin").get('xyz').split()[2])
+        finger = self.robot.find("link[@name='left_finger_link']/visual/geometry/box")
+        finger_length = float(finger.get('size').split()[2])
+        self.assertAlmostEqual(xyz[2], z('gripper_mount_joint') + z('left_finger_joint') + finger_length)
+        import numpy as np
+        from scipy.spatial.transform import Rotation
+        for angle in [-2., -.5, 0., .5, 2.]:
+            np.testing.assert_allclose(Rotation.from_euler('z', angle).apply(xyz), xyz, atol=1e-12)
 
     def test_independent_position_only_group(self):
         folder = ROOT / 'arm_ws/src/arm_moveit_config/config'

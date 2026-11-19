@@ -71,7 +71,7 @@ def main():
     parser.add_argument('--standoff', type=float, default=0.0, help='metres before observed ball surface; default zero')
     parser.add_argument('--attempts', type=int, default=20)
     parser.add_argument('--approach-distance', type=float, default=.03, help='final straight approach length in metres')
-    parser.add_argument('--approach-axis', type=float, nargs=3, default=None, help='physical forward axis expressed in TCP frame; default approximate wrist-to-TCP vector')
+    parser.add_argument('--approach-axis', type=float, nargs=3, default=None, help='physical forward axis expressed in TCP frame; default model gripper forward axis +Z')
     parser.add_argument('--table-z', type=float, default=0.0, help='table top in base_link metres; default follows current URDF table assumption')
     parser.add_argument('--report', default='/tmp/contact_moveit_report.json')
     args = parser.parse_args()
@@ -144,9 +144,14 @@ def main():
         model_xml = wait(params.call_async(req), 4).values[0].string_value
         lower, upper = joint_bounds(model_xml)
         tcp_joint = ET.fromstring(model_xml).find("joint[@name='contact_tcp_approx_joint']/origin")
-        axis = unit(args.approach_axis if args.approach_axis is not None else list(map(float, tcp_joint.get('xyz').split())))
+        tcp_offset = np.array(list(map(float, tcp_joint.get('xyz').split())))
+        if np.linalg.norm(tcp_offset[:2]) > 1e-9 or abs(tcp_offset[2] - .110) > 1e-9:
+            raise RuntimeError('Loaded TCP does not match confirmed axial 110mm geometry; rebuild and restart MoveIt')
+        axis = unit(args.approach_axis if args.approach_axis is not None else [0., 0., 1.])
+        report['tcp_offset_m'] = tcp_offset.tolist()
+        report['tcp_geometry_status'] = 'user-confirmed axial 110mm fingertip-plane center; internal shape/frame calibration provisional'
         report['approach_axis_tcp'] = axis.tolist()
-        report['axis_source'] = 'explicit' if args.approach_axis is not None else 'approximate wrist-to-TCP vector'
+        report['axis_source'] = 'explicit' if args.approach_axis is not None else 'model gripper forward +Z'
         scene_client = client(ApplyPlanningScene, '/apply_planning_scene')
         scene_req = ApplyPlanningScene.Request(); scene_req.scene.is_diff = True
         table = CollisionObject(); table.id = 'contact_workspace_table'; table.header.frame_id = 'base_link'

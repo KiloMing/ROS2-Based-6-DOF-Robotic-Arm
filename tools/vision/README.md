@@ -7,3 +7,5 @@
 
 实时视觉运动统一使用 `contact_moveit.py`，见 [接触规划说明](../../docs/contact_moveit.md)。
 `contact_path.py` 提供几何、轨迹反转和拼接验证；`tests/` 包含模型和路径测试。
+
+单次张爪、进入、闭爪和提起实验见 [抓取流程说明](../../docs/grasp_ball.md)。
