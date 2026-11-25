@@ -1,0 +1,13 @@
+joint,parent,child,x_mm,y_mm,z_mm,axis_x,axis_y,axis_z
+base_joint,base_link,shoulder_mount,0.0,0.0,67.000000,0,0,1
+shoulder_joint,shoulder_mount,upper_arm_link,0.112795,0.271364,38.401159,0,1,0
+elbow_joint,upper_arm_link,forearm_link,-0.0,0.0,105.069692,0,1,0
+wrist_pitch_joint,forearm_link,wrist_pitch_link,0.311128,0.0,87.161598,0,1,0
+wrist_rotation_joint,wrist_pitch_link,wrist_rotation_link,-0.0,0.0,72.0,0,0,1
+tool0_joint,wrist_rotation_link,tool0,0,0,0,,,
+gripper_mount_joint,wrist_rotation_link,gripper_palm_link,0,0,0,,,
+contact_tcp_approx_joint,wrist_rotation_link,contact_tcp_approx,1.0,0.0,98.97794,,,
+grasp_frame_joint,gripper_palm_link,grasp_frame,1.0,0.0,94.475949,,,
+left_finger_joint,gripper_palm_link,left_finger_link,0,0,0,0,1,0
+right_finger_joint,gripper_palm_link,right_finger_link,0,0,0,0,1,0
+cad_original_base_joint,base_link,cad_original_base,0,0,37.000000,,,
