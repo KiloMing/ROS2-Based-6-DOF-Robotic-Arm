@@ -14,3 +14,8 @@ __pycache__/
 # Local camera images, calibration samples and manual trajectory recordings
 tools/vision/captures/
 tools/vision/approach_captures/
+
+# Local vision diagnostics and generated trajectory reports
+tools/vision/diagnostics/
+tools/vision/analysis/
+tmp/

@@ -1,4 +1,4 @@
-"""Stationary eye-in-hand sample collection. No robot command interfaces."""
+"""Stationary hand-eye sample collection, with explicit mounting mode. No motion commands."""
 import sys
 sys.path.append('/usr/lib/python3/dist-packages')
 import argparse
@@ -12,6 +12,7 @@ import numpy as np
 import pyorbbecsdk as ob
 import rclpy
 from rclpy.time import Time
+from sensor_msgs.msg import JointState
 from tf2_ros import Buffer, TransformListener, TransformException
 from camera_utils import frame_to_bgr_image
 
@@ -32,21 +33,28 @@ def matrix(tf):
 
 def main():
     ap=argparse.ArgumentParser()
+    ap.add_argument('--mode',choices=['eye-in-hand','eye-to-hand'],default='eye-in-hand')
+    ap.add_argument('--mount-frame',default=None)
     ap.add_argument('--square-mm',type=float,default=18.)
     ap.add_argument('--output',default=str(Path(__file__).resolve().parent/'captures'/datetime.now().strftime('%Y%m%d_%H%M%S')))
     ap.add_argument('--frames',type=int,default=0)
+    ap.add_argument('--snapshot',action='store_true',help='Save one stable sample automatically in a separate diagnostic directory, then exit')
     args=ap.parse_args()
     if args.square_mm<=0: ap.error('square-mm must be positive')
+    mount=args.mount_frame or ('wrist_rotation_link' if args.mode=='eye-to-hand' else 'wrist_pitch_link')
+    instruction='Keep camera fixed; board rigid on wrist' if args.mode=='eye-to-hand' else 'Keep board fixed; move camera'
     out=Path(args.output); out.mkdir(parents=True,exist_ok=True)
     obj=np.zeros((48,3),np.float64)
     obj[:,:2]=np.mgrid[0:8,0:6].T.reshape(-1,2)*args.square_mm/1000
     rclpy.init(args=[])
     node=rclpy.create_node('handeye_sample_collector')
+    joint_feedback=[]
+    joint_sub=node.create_subscription(JointState,'/joint_states',lambda m:joint_feedback.__setitem__(slice(None),[m]),10)
     buf=Buffer(); listener=TransformListener(buf,node,spin_thread=True)
     pipe=None; started=False; history=deque(); saved=[]; count=0
     for path in sorted(out.glob('*.json')):
         record=json.loads(path.read_text())
-        if record['square_m'] != args.square_mm/1000 or record['parent_frame'] != 'wrist_pitch_link':
+        if record['square_m'] != args.square_mm/1000 or record['parent_frame'] != mount or record.get('calibration_mode','eye-in-hand') != args.mode:
             raise ValueError('Existing session calibration settings differ')
         saved.append(np.array(record['T_base_mount']))
     notice=''; notice_until=0.
@@ -57,7 +65,7 @@ def main():
         param=pipe.get_camera_param(); k=param.rgb_intrinsic; dist=param.rgb_distortion
         K=np.array([[k.fx,0,k.cx],[0,k.fy,k.cy],[0,0,1.]])
         D=np.array([dist.k1,dist.k2,dist.p1,dist.p2,dist.k3,dist.k4,dist.k5,dist.k6])
-        print(f'Output: {out}\n18 mm default; S saves, Q exits. Fixed board, move camera between samples.',flush=True)
+        print(f'Output: {out}\nMode: {args.mode}; mount: {mount}; square: {args.square_mm} mm\nS saves, Q exits. {instruction}',flush=True)
         last_frame=time.monotonic()
         previous_reason=None
         while rclpy.ok():
@@ -83,10 +91,13 @@ def main():
                 reason='Board pose poor' if board is None else 'No fresh robot TF'
             robot=None; tfstamp=None
             try:
-                tf=buf.lookup_transform('base_link','wrist_pitch_link',Time())
+                tf=buf.lookup_transform('base_link',mount,Time())
                 tfstamp=Time.from_msg(tf.header.stamp).nanoseconds
                 age=(node.get_clock().now().nanoseconds-tfstamp)/1e9
                 if not -0.05<=age<=0.3: raise ValueError('Stale robot TF')
+                if not joint_feedback: raise ValueError('No joint feedback')
+                feedback_age=(node.get_clock().now().nanoseconds-Time.from_msg(joint_feedback[-1].header.stamp).nanoseconds)/1e9
+                if not -0.05<=feedback_age<=0.3: raise ValueError('Stale joint feedback')
                 robot=matrix(tf.transform)
                 history.append((time.monotonic(),robot))
                 while history and history[0][0]<time.monotonic()-2.5: history.popleft()
@@ -104,19 +115,20 @@ def main():
                 np.linalg.norm(cv2.Rodrigues(p[:3,:3].T@robot[:3,:3])[0])<np.deg2rad(5)
                 for p in saved)
             if duplicate and board is not None:
-                reason='POSE ALREADY SAVED: change camera pose'
+                reason='POSE ALREADY SAVED: move robot to a different pose'
             if reason != previous_reason:
                 print(f'{reason}; corners={found}; RMS={rms}',flush=True)
                 previous_reason=reason
             cv2.putText(color,f'8x6 corners | {args.square_mm:g} mm | saved={len(saved)}',(8,22),cv2.FONT_HERSHEY_SIMPLEX,.5,(0,255,255),1)
             cv2.putText(color,reason,(8,45),cv2.FONT_HERSHEY_SIMPLEX,.5,(0,255,0) if robot is not None and board is not None else (0,0,255),1)
-            cv2.putText(color,'S: save | Q: exit | Keep board fixed',(8,68),cv2.FONT_HERSHEY_SIMPLEX,.5,(0,255,255),1)
+            cv2.putText(color,'S: save | Q: exit | '+instruction,(8,68),cv2.FONT_HERSHEY_SIMPLEX,.5,(0,255,255),1)
             if time.monotonic()<notice_until:
                 cv2.rectangle(color,(0,80),(color.shape[1],112),(0,0,0),-1)
                 cv2.putText(color,notice,(8,102),cv2.FONT_HERSHEY_SIMPLEX,.48,(0,255,255),1)
-            cv2.imshow('Hand-eye calibration - 18mm board',color)
+            cv2.imshow('Hand-eye calibration - '+args.mode,color)
             key=cv2.waitKey(1)&255
             if key in (27,ord('q')): break
+            if args.snapshot and board is not None and robot is not None and not duplicate: key=ord('s')
             if key in (ord('s'),ord('S')):
                 notice_until=time.monotonic()+5
                 if board is None or robot is None:
@@ -128,7 +140,9 @@ def main():
                 else:
                     stem=str(time.time_ns())
                     record={'square_m':args.square_mm/1000,'inner_corners':[8,6],
-                            'parent_frame':'wrist_pitch_link','base_frame':'base_link',
+                            'calibration_mode':args.mode,
+                            'parent_frame':mount,'base_frame':'base_link',
+                            'joint_state':{'names':list(joint_feedback[-1].name),'positions':list(joint_feedback[-1].position),'stamp_ns':Time.from_msg(joint_feedback[-1].header.stamp).nanoseconds},
                             'camera_frame':'camera_color_optical_frame',
                             'host_receive_stamp_ns':stamp.nanoseconds,'tf_stamp_ns':tfstamp,
                             'timestamp_policy':'latest fresh TF, stationary capture only',
@@ -140,6 +154,7 @@ def main():
                     saved.append(robot)
                     notice=f'SAVED sample {len(saved)} RMS={rms:.3f}px'
                     print(notice,flush=True)
+                    if args.snapshot: break
             count+=1
             if args.frames and count>=args.frames: break
     finally:

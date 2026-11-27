@@ -28,6 +28,7 @@ def setup(context):
            .trajectory_execution(file_path='config/moveit_controllers.yaml')
            .planning_pipelines(pipelines=['ompl']).to_moveit_configs())
     cfg.robot_description = {'robot_description': xml}
+    cfg.robot_description_semantic = {'robot_description_semantic': module.build_semantic(share/'config/arm_cad.srdf', xml)}
     params = cfg.to_dict()
     params.update(publish_robot_description=True, publish_robot_description_semantic=True,
                   publish_planning_scene=True, publish_geometry_updates=True,

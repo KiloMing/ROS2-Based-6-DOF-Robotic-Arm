@@ -1,0 +1,18 @@
+{
+  "mode": "eye-to-hand",
+  "base_frame": "base_link",
+  "camera_frame": "camera_color_optical_frame",
+  "board_mount_frame": "wrist_rotation_link",
+  "measured_translation_m": [
+    -0.2,
+    0.23,
+    0.4
+  ],
+  "rotation": null,
+  "status": "User-measured translation only; not calibrated and not published as TF",
+  "board_inner_corners": [
+    8,
+    6
+  ],
+  "board_square_m": 0.01
+}

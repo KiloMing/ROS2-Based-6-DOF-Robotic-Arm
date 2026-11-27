@@ -38,7 +38,7 @@ def main():
         req.start_state.is_diff = True
         constraint = Constraints()
         constraint.joint_constraints = [JointConstraint(
-            joint_name='gripper_drive_joint', position=.58 if args.close else 0.,
+            joint_name='gripper_drive_joint', position=.58 if args.close else -.14844025287,
             tolerance_above=.0001, tolerance_below=.0001, weight=1.)]
         req.goal_constraints = [constraint]
         goal.planning_options.plan_only = not args.execute

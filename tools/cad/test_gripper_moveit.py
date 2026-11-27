@@ -29,7 +29,7 @@ try:
     state = fresh_state()
     client = node.create_client(GetStateValidity, '/check_state_validity')
     assert client.wait_for_service(timeout_sec=10)
-    for q in np.linspace(0., .58, 101):
+    for q in np.linspace(-.153, .58, 101):
         sample = {**state, **dict(zip(NAMES, q*np.array(factors)))}
         req = GetStateValidity.Request()
         req.robot_state.joint_state.name = list(sample)
@@ -38,7 +38,7 @@ try:
         rclpy.spin_until_future_complete(node, future, timeout_sec=5)
         assert future.done() and future.result().valid, f'Collision at {q}: {future.result()}'
     print('101 full-robot collision samples passed', flush=True)
-    for option, target in [('--close', .58), ('--open', 0.)]:
+    for option, target in [('--close', .58), ('--open', -.14844025287)]:
         subprocess.run([sys.executable, str(root/'tools/cad/gripper_move.py'), option, '--execute'], check=True, timeout=75)
         state = fresh_state()
         assert abs(state[NAMES[0]]-target)<.001, state

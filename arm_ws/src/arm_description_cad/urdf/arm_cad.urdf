@@ -1951,7 +1951,7 @@
     <child link="left_drive_link" />
     <origin xyz="-0.01375000399999999 0.0 0.025000000999999997" rpy="0 0 0" />
     <axis xyz="0 1 0" />
-    <limit lower="0.0" upper="0.58" velocity=".3" effort="1" />
+    <limit lower="-0.153" upper="0.58" velocity=".3" effort="1" />
   </joint>
   <link name="left_rocker_link">
     <visual name="cad_109">
@@ -2020,8 +2020,8 @@
     <child link="left_rocker_link" />
     <origin xyz="-0.00400000399999999 0.0 0.045000001" rpy="0 0 0" />
     <axis xyz="0 1 0" />
-    <limit lower="0.0" upper="0.5761750284247246" velocity=".3" effort="1" />
-    <mimic joint="gripper_drive_joint" multiplier="0.993405221421939" offset="0" />
+    <limit lower="-0.15200230198445117" upper="0.5762178768038018" velocity=".3" effort="1" />
+    <mimic joint="gripper_drive_joint" multiplier="0.9934790979375893" offset="0" />
   </joint>
   <link name="left_finger_link">
     <visual name="cad_113">
@@ -2135,8 +2135,8 @@
     <child link="left_finger_link" />
     <origin xyz="-0.02111050000000023 0.0 0.021315409999999986" rpy="0 0 0" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.5895462708194107" upper="0.0" velocity=".3" effort="1" />
-    <mimic joint="gripper_drive_joint" multiplier="-1.0164590876196737" offset="0" />
+    <limit lower="-0.5895029537921164" upper="0.15550681367274796" velocity=".3" effort="1" />
+    <mimic joint="gripper_drive_joint" multiplier="-1.016384403089856" offset="0" />
   </joint>
   <link name="right_drive_link">
     <visual name="cad_107">
@@ -2220,7 +2220,7 @@
     <child link="right_drive_link" />
     <origin xyz="0.01374999600000001 0.0 0.025000000999999997" rpy="0 0 0" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.58" upper="0.0" velocity=".3" effort="1" />
+    <limit lower="-0.58" upper="0.153" velocity=".3" effort="1" />
     <mimic joint="gripper_drive_joint" multiplier="-1.0" offset="0" />
   </joint>
   <link name="right_rocker_link">
@@ -2290,8 +2290,8 @@
     <child link="right_rocker_link" />
     <origin xyz="0.00399999600000001 0.0 0.045000001" rpy="0 0 0" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.5761750284247246" upper="0.0" velocity=".3" effort="1" />
-    <mimic joint="gripper_drive_joint" multiplier="-0.993405221421939" offset="0" />
+    <limit lower="-0.5762178768038018" upper="0.15200230198445117" velocity=".3" effort="1" />
+    <mimic joint="gripper_drive_joint" multiplier="-0.9934790979375893" offset="0" />
   </joint>
   <link name="right_finger_link">
     <visual name="cad_111">
@@ -2405,7 +2405,7 @@
     <child link="right_finger_link" />
     <origin xyz="0.021110499999999775 0.0 0.021315409999999986" rpy="0 0 0" />
     <axis xyz="0 1 0" />
-    <limit lower="0.0" upper="0.5895462708194107" velocity=".3" effort="1" />
-    <mimic joint="gripper_drive_joint" multiplier="1.0164590876196737" offset="0" />
+    <limit lower="-0.15550681367274796" upper="0.5895029537921164" velocity=".3" effort="1" />
+    <mimic joint="gripper_drive_joint" multiplier="1.016384403089856" offset="0" />
   </joint>
 </robot>

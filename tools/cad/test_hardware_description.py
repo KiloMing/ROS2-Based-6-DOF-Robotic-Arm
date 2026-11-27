@@ -40,7 +40,7 @@ class HardwareDescriptionTest(unittest.TestCase):
    hw.build_description(URDF,self.profile,'/nonexistent')
  def test_reversed_arm_mapping_roundtrip_and_limits(self):
   root=ET.fromstring(hw.build_description(URDF,self.profile,'/nonexistent'))
-  for name,sign in zip(hw.MOTORS[:5],[-1,1,-1,1,-1]):
+  for name,sign in zip(hw.MOTORS[:5],[1,1,-1,1,1]):
    config=self.profile['joints'][name]
    zero=config['raw_zero'];scale=config['radians_per_raw']
    self.assertGreater(sign*scale,0)

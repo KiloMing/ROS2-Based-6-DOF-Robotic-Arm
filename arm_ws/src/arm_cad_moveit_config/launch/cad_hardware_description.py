@@ -57,3 +57,14 @@ def build_description(path, calibration, port, enable_motion=False, limits_verif
         ET.SubElement(cj, 'state_interface', name='position')
         ET.SubElement(cj, 'state_interface', name='velocity')
     return ET.tostring(root, encoding='unicode')
+
+
+def build_semantic(srdf_path, description):
+    """Keep gripper named targets within the calibrated hardware bounds."""
+    root = ET.parse(srdf_path).getroot()
+    limit = ET.fromstring(description).find("joint[@name='gripper_drive_joint']/limit")
+    lower, upper = float(limit.get('lower')), float(limit.get('upper'))
+    for state in root.findall("group_state[@group='gripper']"):
+        for joint in state.findall("joint[@name='gripper_drive_joint']"):
+            joint.set('value', str(max(lower, min(upper, float(joint.get('value'))))))
+    return ET.tostring(root, encoding='unicode')

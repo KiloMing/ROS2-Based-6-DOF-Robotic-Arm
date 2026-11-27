@@ -2,7 +2,7 @@ calibration_verified: false
 joints:
   base_joint:
     raw_zero: 1600
-    radians_per_raw: -0.00235619449
+    radians_per_raw: 0.00235619449
     raw_min: 500
     raw_max: 2500
   shoulder_joint:
@@ -22,7 +22,7 @@ joints:
     raw_max: 2500
   wrist_rotation_joint:
     raw_zero: 1500
-    radians_per_raw: -0.00235619449
+    radians_per_raw: 0.00235619449
     raw_min: 500
     raw_max: 2500
   gripper_drive_joint:
@@ -31,6 +31,9 @@ joints:
     raw_min: 1100
     raw_max: 1770
 calibration_notes:
+  gripper_range: "Restored original closing end: CAD close 0.58 rad (raw about 1746), hardware raw_max 1770. Extended CAD open target -0.14844025287 rad (raw 1437), model lower bound -0.153 rad for integer-raw rounding; raw zero remains 1500. Physical opening verification pending."
+  wrist_direction: "2026-11-27: user confirmed motor 004 reversed; changed scale to positive, retaining raw zero 1500. Physical verification pending."
+  base_direction: "2026-11-27: user corrected motor 000 direction; positive scale, raw 1600 remains zero. Other motors unchanged."
   gripper_zero: User confirmed raw 1500 is CAD zero on 2026-11-26
   scale_and_direction: Magnitude retained at 0.00235619449 rad/raw; 005 gripper mapping
     unchanged. Both command inverse and measured feedback use the same signed scale.
