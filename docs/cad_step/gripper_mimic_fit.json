@@ -1,0 +1,18 @@
+{
+  "range_rad": [
+    0.0,
+    0.58
+  ],
+  "samples": 1001,
+  "multipliers": {
+    "gripper_drive_joint": 1.0,
+    "left_rocker_joint": 0.993405221421939,
+    "left_finger_joint": -1.0164590876196737,
+    "right_drive_joint": -1.0,
+    "right_rocker_joint": -0.993405221421939,
+    "right_finger_joint": 1.0164590876196737
+  },
+  "max_angle_error_deg": 0.07346630930256733,
+  "max_four_bar_closure_error_mm": 0.019519790745535996,
+  "note": "Linear kinematic approximation for MoveIt; unchanged CAD meshes. Not hardware calibration."
+}

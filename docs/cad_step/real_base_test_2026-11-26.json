@@ -1,0 +1,71 @@
+{
+  "test": "MoveIt +2 degree base only",
+  "executed": true,
+  "start_rad": {
+    "base_joint": 0.00942477796,
+    "elbow_joint": 1.42785386094,
+    "gripper_drive_joint": 0.0,
+    "left_finger_joint": 0.0,
+    "left_rocker_joint": 0.0,
+    "right_drive_joint": 0.0,
+    "right_finger_joint": 0.0,
+    "right_rocker_joint": 0.0,
+    "shoulder_joint": -0.9896016858,
+    "wrist_pitch_joint": 1.63519897606,
+    "wrist_rotation_joint": -0.00235619449
+  },
+  "plan_code": 1,
+  "trajectory_points": 18,
+  "execute_code": 1,
+  "end_rad": {
+    "base_joint": 0.03063052837,
+    "elbow_joint": 1.42785386094,
+    "gripper_drive_joint": 0.0,
+    "left_finger_joint": 0.0,
+    "left_rocker_joint": 0.0,
+    "right_drive_joint": 0.0,
+    "right_finger_joint": 0.0,
+    "right_rocker_joint": 0.0,
+    "shoulder_joint": -0.9896016858,
+    "wrist_pitch_joint": 1.63519897606,
+    "wrist_rotation_joint": -0.00235619449
+  },
+  "delta_deg": {
+    "base_joint": 1.2149999999008152,
+    "shoulder_joint": 0.0,
+    "elbow_joint": 0.0,
+    "wrist_pitch_joint": 0.0,
+    "wrist_rotation_joint": 0.0
+  },
+  "error": "Controller succeeded but measured base displacement differs from target",
+  "settled_controller_state": {
+    "joints": [
+      "base_joint",
+      "shoulder_joint",
+      "elbow_joint",
+      "wrist_pitch_joint",
+      "wrist_rotation_joint"
+    ],
+    "reference": [
+      0.04426402758029693,
+      -0.9896858376274508,
+      1.4277857518205492,
+      1.6351774225763482,
+      -0.0022567458738492335
+    ],
+    "feedback": [
+      0.03063052837,
+      -0.9896016858,
+      1.42785386094,
+      1.63519897606,
+      -0.00235619449
+    ],
+    "error": [
+      0.013633499210296933,
+      -8.415182745080685e-05,
+      -6.810911945076548e-05,
+      -2.1553483651848282e-05,
+      9.94486161507665e-05
+    ]
+  }
+}

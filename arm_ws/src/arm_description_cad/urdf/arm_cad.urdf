@@ -1,0 +1,2411 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="am1_step_cad">
+  <link name="base_link">
+    <visual name="cad_1">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_001.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_1">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_001.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_2">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_002.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_2">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_002.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_3">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_003.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_3">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_003.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_4">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_004.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_4">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_004.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_5">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_005.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_5">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_005.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_6">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_006.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_6">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_006.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_7">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_007.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_7">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_007.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_8">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_008.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_8">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_008.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_9">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_009.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_9">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_009.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_10">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_010.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_10">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_010.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_28">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_028.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_28">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_028.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_29">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_029.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_29">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_029.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_30">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_030.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_30">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_030.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_31">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_031.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_31">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_031.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_32">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_032.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_32">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_032.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_33">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_033.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_33">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_033.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_34">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_034.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_34">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_034.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_35">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_035.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_35">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_035.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_36">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_036.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_36">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_036.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_37">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_037.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_37">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_037.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_38">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_038.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_38">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_038.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_39">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_039.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_39">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_039.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_40">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_040.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_40">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_040.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_41">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_041.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_41">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_041.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_42">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_042.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_42">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_042.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_43">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_043.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_43">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_043.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_44">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_044.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_44">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_044.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_45">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_045.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_45">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_045.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_46">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_046.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_46">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_046.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_47">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_047.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_47">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_047.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_48">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_048.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_48">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_048.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_49">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_049.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_49">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_049.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_17">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_017.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_17">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_017.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_153">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_153.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_153">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_153.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="shoulder_mount">
+    <visual name="cad_11">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_011.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_11">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_011.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_12">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_012.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_12">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_012.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_13">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_013.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_13">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_013.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_14">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_014.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_14">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_014.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_15">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_015.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_15">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_015.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_16">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_016.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_16">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_016.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_18">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_018.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_18">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_018.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_19">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_019.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_19">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_019.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_20">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_020.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_20">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_020.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_21">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_021.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_21">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_021.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_22">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_022.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_22">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_022.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_23">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_023.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_23">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_023.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_24">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_024.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_24">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_024.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_25">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_025.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_25">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_025.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_26">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_026.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_26">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_026.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_27">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_027.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_27">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_027.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_50">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_050.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_50">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_050.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="upper_arm_link">
+    <visual name="cad_51">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_051.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_51">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_051.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_52">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_052.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_52">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_052.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_53">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_053.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_53">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_053.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_54">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_054.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_54">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_054.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_55">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_055.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_55">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_055.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_56">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_056.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_56">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_056.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_57">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_057.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_57">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_057.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_58">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_058.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_58">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_058.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_59">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_059.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_59">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_059.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_60">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_060.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_60">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_060.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_61">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_061.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_61">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_061.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_62">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_062.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_62">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_062.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_63">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_063.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_63">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_063.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_64">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_064.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_64">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_064.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_65">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_065.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_65">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_065.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_66">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_066.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_66">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_066.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_67">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_067.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_67">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_067.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_68">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_068.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_68">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_068.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_69">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_069.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_69">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_069.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_70">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_070.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_70">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_070.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_71">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_071.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_71">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_071.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_72">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_072.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_72">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_072.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_74">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_074.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_74">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_074.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_75">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_075.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_75">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_075.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_76">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_076.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_76">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_076.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_77">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_077.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_77">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_077.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_78">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_078.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_78">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_078.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_79">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_079.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_79">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_079.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_80">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_080.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_80">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_080.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_81">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_081.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_81">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_081.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_82">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_082.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_82">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_082.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_83">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_083.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_83">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_083.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_84">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_084.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_84">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_084.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="forearm_link">
+    <visual name="cad_73">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_073.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_73">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_073.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_85">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_085.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_85">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_085.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_86">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_086.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_86">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_086.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="wrist_pitch_link">
+    <visual name="cad_87">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_087.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_87">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_087.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_88">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_088.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_88">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_088.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_89">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_089.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_89">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_089.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_90">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_090.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_90">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_090.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_91">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_091.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_91">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_091.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_92">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_092.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_92">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_092.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_93">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_093.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_93">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_093.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_94">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_094.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_94">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_094.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_95">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_095.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_95">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_095.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_96">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_096.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_96">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_096.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_97">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_097.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_97">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_097.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_98">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_098.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_98">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_098.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_99">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_099.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_99">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_099.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="wrist_rotation_link">
+    <visual name="cad_100">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_100.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_100">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_100.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_101">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_101.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_101">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_101.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_102">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_102.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_102">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_102.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_103">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_103.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_103">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_103.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_104">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_104.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_104">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_104.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_114">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_114.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_114">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_114.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_115">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_115.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_115">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_115.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_116">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_116.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_116">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_116.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_117">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_117.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_117">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_117.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_136">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_136.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_136">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_136.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_137">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_137.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_137">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_137.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_138">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_138.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_138">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_138.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_139">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_139.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_139">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_139.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_140">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_140.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_140">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_140.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_141">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_141.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_141">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_141.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_142">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_142.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_142">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_142.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_143">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_143.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_143">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_143.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_145">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_145.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_145">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_145.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_146">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_146.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_146">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_146.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_147">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_147.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_147">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_147.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_148">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_148.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_148">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_148.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_149">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_149.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_149">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_149.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="shoulder_mount" />
+    <origin xyz="0.0 0.0 0.067" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="shoulder_joint" type="continuous">
+    <parent link="shoulder_mount" />
+    <child link="upper_arm_link" />
+    <origin xyz="0.00027136400000017603 -0.00011279500000000554 0.03840115900000001" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <joint name="elbow_joint" type="continuous">
+    <parent link="upper_arm_link" />
+    <child link="forearm_link" />
+    <origin xyz="0.0 0.0 0.105069692" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <joint name="wrist_pitch_joint" type="continuous">
+    <parent link="forearm_link" />
+    <child link="wrist_pitch_link" />
+    <origin xyz="0.0 -0.0003111280000000534 0.08716159799999999" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <joint name="wrist_rotation_joint" type="continuous">
+    <parent link="wrist_pitch_link" />
+    <child link="wrist_rotation_link" />
+    <origin xyz="0.0 0.0 0.07200000000000001" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="tool0" />
+  <joint name="tool0_joint" type="fixed">
+    <parent link="wrist_rotation_link" />
+    <child link="tool0" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="cad_tip_reference" />
+  <joint name="cad_tip_reference_joint" type="fixed">
+    <parent link="wrist_rotation_link" />
+    <child link="cad_tip_reference" />
+    <origin xyz="0 0.001 0.09897794" rpy="0 0 0" />
+  </joint>
+  <link name="left_drive_link">
+    <visual name="cad_105">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_105.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_105">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_105.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_106">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_106.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_106">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_106.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_134">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_134.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_134">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_134.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_135">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_135.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_135">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_135.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gripper_drive_joint" type="revolute">
+    <parent link="wrist_rotation_link" />
+    <child link="left_drive_link" />
+    <origin xyz="-0.01375000399999999 0.0 0.025000000999999997" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0" upper="0.58" velocity=".3" effort="1" />
+  </joint>
+  <link name="left_rocker_link">
+    <visual name="cad_109">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_109.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_109">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_109.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_112">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_112.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_112">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_112.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_126">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_126.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_126">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_126.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_128">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_128.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_128">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_128.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_rocker_joint" type="revolute">
+    <parent link="wrist_rotation_link" />
+    <child link="left_rocker_link" />
+    <origin xyz="-0.00400000399999999 0.0 0.045000001" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0" upper="0.5761750284247246" velocity=".3" effort="1" />
+    <mimic joint="gripper_drive_joint" multiplier="0.993405221421939" offset="0" />
+  </joint>
+  <link name="left_finger_link">
+    <visual name="cad_113">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_113.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_113">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_113.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_119">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_119.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_119">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_119.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_120">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_120.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_120">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_120.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_122">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_122.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_122">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_122.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_123">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_123.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_123">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_123.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_131">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_131.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_131">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_131.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_132">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_132.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_132">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_132.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger_joint" type="revolute">
+    <parent link="left_drive_link" />
+    <child link="left_finger_link" />
+    <origin xyz="-0.02111050000000023 0.0 0.021315409999999986" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.5895462708194107" upper="0.0" velocity=".3" effort="1" />
+    <mimic joint="gripper_drive_joint" multiplier="-1.0164590876196737" offset="0" />
+  </joint>
+  <link name="right_drive_link">
+    <visual name="cad_107">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_107.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_107">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_107.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_144">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_144.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_144">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_144.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_150">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_150.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_150">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_150.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_151">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_151.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_151">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_151.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_152">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_152.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_152">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_152.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_drive_joint" type="revolute">
+    <parent link="wrist_rotation_link" />
+    <child link="right_drive_link" />
+    <origin xyz="0.01374999600000001 0.0 0.025000000999999997" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.58" upper="0.0" velocity=".3" effort="1" />
+    <mimic joint="gripper_drive_joint" multiplier="-1.0" offset="0" />
+  </joint>
+  <link name="right_rocker_link">
+    <visual name="cad_108">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_108.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_108">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_108.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_110">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_110.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_110">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_110.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_127">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_127.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_127">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_127.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_129">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_129.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_129">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_129.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_rocker_joint" type="revolute">
+    <parent link="wrist_rotation_link" />
+    <child link="right_rocker_link" />
+    <origin xyz="0.00399999600000001 0.0 0.045000001" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.5761750284247246" upper="0.0" velocity=".3" effort="1" />
+    <mimic joint="gripper_drive_joint" multiplier="-0.993405221421939" offset="0" />
+  </joint>
+  <link name="right_finger_link">
+    <visual name="cad_111">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_111.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_111">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_111.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_118">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_118.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_118">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_118.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_121">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_121.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_121">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_121.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_124">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_124.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_124">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_124.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_125">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_125.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_125">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_125.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_130">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_130.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_130">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_130.stl" />
+      </geometry>
+    </collision>
+    <visual name="cad_133">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/solid_133.stl" />
+      </geometry>
+      <material name="cad_white">
+        <color rgba="0.95 0.95 0.95 1" />
+      </material>
+    </visual>
+    <collision name="cad_133">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://arm_description_cad/meshes/collision/solid_133.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger_joint" type="revolute">
+    <parent link="right_drive_link" />
+    <child link="right_finger_link" />
+    <origin xyz="0.021110499999999775 0.0 0.021315409999999986" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0" upper="0.5895462708194107" velocity=".3" effort="1" />
+    <mimic joint="gripper_drive_joint" multiplier="1.0164590876196737" offset="0" />
+  </joint>
+</robot>

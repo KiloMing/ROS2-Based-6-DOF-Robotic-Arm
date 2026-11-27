@@ -174,15 +174,36 @@ public:
     if(hardware_interface::SystemInterface::on_init(info)!=hardware_interface::CallbackReturn::SUCCESS)
       return hardware_interface::CallbackReturn::ERROR;
     try {
-      if(info_.joints.size()!=7)throw std::runtime_error("Expected 6 motors + 1 mimic joint");
-      for(size_t i=0;i<7;++i) {
-        const std::string name=i==6?"right_finger_joint":cal[i].name;
-        if(info_.joints[i].name!=name)throw std::runtime_error("Joint order mismatch: "+info_.joints[i].name);
-      }
       const auto& p=info_.hardware_parameters;
       auto get=[&](const std::string& k,const std::string& d){
         auto it=p.find(k);return it==p.end()?d:it->second;
       };
+      cad_=get("model","legacy")=="cad";
+      const std::array<std::string,11> cad_names{{"base_joint","shoulder_joint","elbow_joint",
+        "wrist_pitch_joint","wrist_rotation_joint","gripper_drive_joint","left_rocker_joint",
+        "left_finger_joint","right_drive_joint","right_rocker_joint","right_finger_joint"}};
+      if(info_.joints.size()!=(cad_?11u:7u))throw std::runtime_error("Unexpected joint count");
+      for(size_t i=0;i<info_.joints.size();++i) {
+        const std::string name=cad_?cad_names[i]:(i==6?"right_finger_joint":cal[i].name);
+        if(info_.joints[i].name!=name)throw std::runtime_error("Joint order mismatch: "+info_.joints[i].name);
+      }
+      if(cad_) {
+        // Explicit CAD-angle calibration. Never reinterpret the old prismatic
+        // finger's metres as the new linkage's radians.
+        for(size_t i=0;i<6;++i) {
+          const auto& jp=info_.joints[i].parameters;
+          zero_[i]=std::stod(jp.at("raw_zero"));
+          scale_[i]=std::stod(jp.at("radians_per_raw"));
+          low_[i]=std::stoi(jp.at("raw_min")); high_[i]=std::stoi(jp.at("raw_max"));
+          if(!std::isfinite(zero_[i])||!std::isfinite(scale_[i])||std::abs(scale_[i])<1e-8||
+             low_[i]<500||high_[i]>2500||low_[i]>=high_[i]||zero_[i]<low_[i]||zero_[i]>high_[i])
+            throw std::runtime_error("Invalid CAD raw calibration: "+info_.joints[i].name);
+        }
+        if(info_.mimic_joints.size()!=5)throw std::runtime_error("CAD requires five mimic followers");
+        for(const auto& m:info_.mimic_joints)
+          if(m.joint_index<6||m.joint_index>=11||m.mimicked_joint_index!=5)
+            throw std::runtime_error("CAD followers must mimic gripper_drive_joint");
+      }
       port_=get("port","/dev/ttyUSB0");
       if(get("baud","115200")!="115200")throw std::runtime_error("Only 115200 baud supported");
       timeout_=std::stoi(get("timeout_ms","40"));
@@ -194,10 +215,13 @@ public:
       duration_=std::stoi(get("move_time_ms","180"));
       motion_=get("enable_motion","false")=="true";
       checked_=get("limits_verified","false")=="true";
+      commissioning_=cad_&&get("commissioning_base_test","false")=="true";
       if(timeout_<10||timeout_>500||max_age_<500||step_<1||step_>30||
          tracking_<step_||tracking_>200||duration_<50||duration_>1000)
         throw std::runtime_error("Invalid timing/safety parameter");
-      if(motion_&&!checked_)throw std::runtime_error("Motion requires limits_verified=true");
+      if(motion_&&!checked_&&!commissioning_)throw std::runtime_error("Motion requires limits_verified=true");
+      if(commissioning_)RCLCPP_WARN(rclcpp::get_logger("arm_hardware"),
+        "Base-only commissioning: +/-20 raw from activation; other motors held. Calibration remains unverified.");
       RCLCPP_WARN(rclcpp::get_logger("arm_hardware"),
         "YH-K32 driver: %s; historical raw ranges are NOT certified physical limits",
         motion_?"MOTION ENABLED":"READ ONLY");
@@ -209,7 +233,7 @@ public:
   }
   std::vector<hardware_interface::StateInterface> export_state_interfaces() override {
     std::vector<hardware_interface::StateInterface> out;
-    for(size_t i=0;i<7;++i){
+    for(size_t i=0;i<info_.joints.size();++i){
       out.emplace_back(info_.joints[i].name,hardware_interface::HW_IF_POSITION,&q_[i]);
       out.emplace_back(info_.joints[i].name,hardware_interface::HW_IF_VELOCITY,&v_[i]);
     }
@@ -263,6 +287,11 @@ public:
           Clock::now()-timestamps_[i]).count()>max_age_)
           throw std::runtime_error("Write blocked on stale state");
         target[i]=to_raw(i,cmd_[i]);
+        if(commissioning_) {
+          if(std::abs(target[i]-activation_raw_[i])>(i==0?20:1))
+            throw std::runtime_error("Command exceeds base-only commissioning range");
+          if(i!=0)target[i]=activation_raw_[i];
+        }
         int delta=std::abs(target[i]-last_sent_[i]);
         if(step_check_ && delta>step_)throw std::runtime_error(command_error(i, target[i], "command step too large"));
         if(std::abs(target[i]-feedback_[i])>tracking_)
@@ -270,7 +299,7 @@ public:
         changed|=delta>=2;
       }
       if(!changed)return hardware_interface::return_type::OK;
-      if(!motion_||!checked_)throw std::runtime_error("Motion disabled");
+      if(!motion_||(!checked_&&!commissioning_))throw std::runtime_error("Motion disabled");
       for(size_t i=0;i<6;++i)if(std::abs(target[i]-last_sent_[i])>=2){
         bus_.move(int(i),target[i],duration_);
         last_sent_[i]=target[i];
@@ -286,7 +315,7 @@ private:
     const auto age = std::chrono::duration_cast<std::chrono::milliseconds>(
       Clock::now() - timestamps_[i]).count();
     std::ostringstream out;
-    out << cal[i].name << " " << reason
+    out << info_.joints[i].name << " " << reason
         << " target_raw=" << target << " last_sent_raw=" << last_sent_[i]
         << " feedback_raw=" << feedback_[i]
         << " step_raw=" << std::abs(target-last_sent_[i]) << " step_limit=" << step_
@@ -295,11 +324,22 @@ private:
     return out.str();
   }
   double to_q(size_t i,int r)const{
+    if(cad_) {
+      if(r<low_[i]||r>high_[i])throw std::runtime_error("Feedback outside configured raw range");
+      return (r-zero_[i])*scale_[i];
+    }
     if(r<cal[i].low||r>cal[i].high)throw std::runtime_error("Feedback outside historical raw range");
     return i==5?finger_from_raw(r):cal[i].sign*(r-cal[i].zero)*rad_per_raw;
   }
   int to_raw(size_t i,double q)const{
     if(!std::isfinite(q))throw std::runtime_error("Nonfinite target");
+    if(cad_) {
+      const double raw=zero_[i]+q/scale_[i];
+      if(raw<low_[i]-.5||raw>high_[i]+.5)throw std::runtime_error("Target outside configured raw range");
+      const int result=int(std::lround(raw));
+      if(result<low_[i]||result>high_[i])throw std::runtime_error("Target outside configured raw range");
+      return result;
+    }
     int r=i==5?finger_to_raw(q):int(std::lround(cal[i].zero+cal[i].sign*q/rad_per_raw));
     if(r<cal[i].low||r>cal[i].high)throw std::runtime_error("Target outside historical raw range");
     return r;
@@ -311,23 +351,33 @@ private:
     double dt=std::chrono::duration<double>(now-timestamps_[i]).count();
     v_[i]=timestamps_[i].time_since_epoch().count()!=0&&dt>0?(new_q-q_[i])/dt:0.0;
     q_[i]=new_q;feedback_[i]=r;timestamps_[i]=Clock::now();
-    if(i==5){q_[6]=-q_[5];v_[6]=-v_[5];}
+    if(i==5){
+      if(cad_) for(const auto& m:info_.mimic_joints) {
+        q_[m.joint_index]=q_[5]*m.multiplier+m.offset;
+        v_[m.joint_index]=v_[5]*m.multiplier;
+      }
+      else {q_[6]=-q_[5];v_[6]=-v_[5];}
+    }
   }
   void poll_all(){
     for(size_t i=0;i<6;++i)poll(i);
-    for(size_t i=0;i<6;++i){cmd_[i]=q_[i];last_sent_[i]=feedback_[i];}
+    for(size_t i=0;i<6;++i){cmd_[i]=q_[i];last_sent_[i]=feedback_[i];activation_raw_[i]=feedback_[i];}
     next_=0; // activation never commands movement
   }
   bool step_check_{true};
   Serial bus_;
   std::string port_;
-  std::array<double,7> q_{},v_{};
+  std::array<double,11> q_{},v_{};
+  std::array<double,6> zero_{},scale_{};
+  std::array<int,6> low_{},high_{};
+  bool cad_{false};
   std::array<double,6> cmd_{};
   std::array<int,6> feedback_{},last_sent_{};
+  std::array<int,6> activation_raw_{};
   std::array<Clock::time_point,6> timestamps_{};
   size_t next_{0};
   int timeout_{40},max_age_{1200},step_{8},tracking_{80},duration_{180};
-  bool motion_{false},checked_{false},active_{false};
+  bool motion_{false},checked_{false},active_{false},commissioning_{false};
 };
 }  // namespace arm_hardware
 PLUGINLIB_EXPORT_CLASS(arm_hardware::ArmSystem, hardware_interface::SystemInterface)

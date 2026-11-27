@@ -1,0 +1,767 @@
+[
+  {
+    "mesh": "solid_001.stl",
+    "faces": 380,
+    "volume_m3": 2.0047590088950162e-05
+  },
+  {
+    "mesh": "solid_002.stl",
+    "faces": 1944,
+    "volume_m3": 3.867304383647284e-05
+  },
+  {
+    "mesh": "solid_003.stl",
+    "faces": 3070,
+    "volume_m3": 4.1484058476755016e-07
+  },
+  {
+    "mesh": "solid_004.stl",
+    "faces": 628,
+    "volume_m3": 6.250828954950195e-08
+  },
+  {
+    "mesh": "solid_005.stl",
+    "faces": 3070,
+    "volume_m3": 4.1484059783651303e-07
+  },
+  {
+    "mesh": "solid_006.stl",
+    "faces": 3070,
+    "volume_m3": 4.1484059862356477e-07
+  },
+  {
+    "mesh": "solid_007.stl",
+    "faces": 3070,
+    "volume_m3": 4.148405855254245e-07
+  },
+  {
+    "mesh": "solid_008.stl",
+    "faces": 628,
+    "volume_m3": 6.25082891659539e-08
+  },
+  {
+    "mesh": "solid_009.stl",
+    "faces": 628,
+    "volume_m3": 6.250829052743999e-08
+  },
+  {
+    "mesh": "solid_010.stl",
+    "faces": 628,
+    "volume_m3": 6.250829101126676e-08
+  },
+  {
+    "mesh": "solid_028.stl",
+    "faces": 3070,
+    "volume_m3": 6.49194157828126e-07
+  },
+  {
+    "mesh": "solid_029.stl",
+    "faces": 3070,
+    "volume_m3": 6.491941499594667e-07
+  },
+  {
+    "mesh": "solid_030.stl",
+    "faces": 3070,
+    "volume_m3": 6.491941487885109e-07
+  },
+  {
+    "mesh": "solid_031.stl",
+    "faces": 3070,
+    "volume_m3": 6.491941557714198e-07
+  },
+  {
+    "mesh": "solid_032.stl",
+    "faces": 628,
+    "volume_m3": 6.250820790493047e-08
+  },
+  {
+    "mesh": "solid_033.stl",
+    "faces": 628,
+    "volume_m3": 6.250821017428246e-08
+  },
+  {
+    "mesh": "solid_034.stl",
+    "faces": 628,
+    "volume_m3": 6.250820624696356e-08
+  },
+  {
+    "mesh": "solid_035.stl",
+    "faces": 628,
+    "volume_m3": 6.250819957330291e-08
+  },
+  {
+    "mesh": "solid_036.stl",
+    "faces": 380,
+    "volume_m3": 2.0047627881783224e-05
+  },
+  {
+    "mesh": "solid_037.stl",
+    "faces": 380,
+    "volume_m3": 2.0047590540242066e-05
+  },
+  {
+    "mesh": "solid_038.stl",
+    "faces": 3070,
+    "volume_m3": 1.1471954498484044e-06
+  },
+  {
+    "mesh": "solid_039.stl",
+    "faces": 20,
+    "volume_m3": 4.364767018217382e-07
+  },
+  {
+    "mesh": "solid_040.stl",
+    "faces": 20,
+    "volume_m3": 1.0911918779563287e-06
+  },
+  {
+    "mesh": "solid_041.stl",
+    "faces": 20,
+    "volume_m3": 4.364765453596333e-07
+  },
+  {
+    "mesh": "solid_042.stl",
+    "faces": 20,
+    "volume_m3": 1.091191486801021e-06
+  },
+  {
+    "mesh": "solid_043.stl",
+    "faces": 3070,
+    "volume_m3": 1.147195419760532e-06
+  },
+  {
+    "mesh": "solid_044.stl",
+    "faces": 3070,
+    "volume_m3": 1.1471953883100433e-06
+  },
+  {
+    "mesh": "solid_045.stl",
+    "faces": 20,
+    "volume_m3": 4.364768163600643e-07
+  },
+  {
+    "mesh": "solid_046.stl",
+    "faces": 20,
+    "volume_m3": 1.0911921643021747e-06
+  },
+  {
+    "mesh": "solid_047.stl",
+    "faces": 3070,
+    "volume_m3": 1.1471954174939725e-06
+  },
+  {
+    "mesh": "solid_048.stl",
+    "faces": 20,
+    "volume_m3": 4.36476972822266e-07
+  },
+  {
+    "mesh": "solid_049.stl",
+    "faces": 20,
+    "volume_m3": 1.0911921602531908e-06
+  },
+  {
+    "mesh": "solid_017.stl",
+    "faces": 332,
+    "volume_m3": 7.081608981486702e-05
+  },
+  {
+    "mesh": "solid_153.stl",
+    "faces": 400,
+    "volume_m3": 7.704361612017193e-05
+  },
+  {
+    "mesh": "solid_011.stl",
+    "faces": 332,
+    "volume_m3": 1.0043726146372251e-05
+  },
+  {
+    "mesh": "solid_012.stl",
+    "faces": 500,
+    "volume_m3": 1.1264873017430028e-06
+  },
+  {
+    "mesh": "solid_013.stl",
+    "faces": 820,
+    "volume_m3": 1.2341912289635297e-07
+  },
+  {
+    "mesh": "solid_014.stl",
+    "faces": 820,
+    "volume_m3": 1.2341912826233157e-07
+  },
+  {
+    "mesh": "solid_015.stl",
+    "faces": 820,
+    "volume_m3": 1.234191254179449e-07
+  },
+  {
+    "mesh": "solid_016.stl",
+    "faces": 820,
+    "volume_m3": 1.2341912601726482e-07
+  },
+  {
+    "mesh": "solid_018.stl",
+    "faces": 332,
+    "volume_m3": 1.004372497712883e-05
+  },
+  {
+    "mesh": "solid_019.stl",
+    "faces": 316,
+    "volume_m3": 3.4679201156593855e-05
+  },
+  {
+    "mesh": "solid_020.stl",
+    "faces": 972,
+    "volume_m3": 1.6829132030783727e-07
+  },
+  {
+    "mesh": "solid_021.stl",
+    "faces": 628,
+    "volume_m3": 6.250819162182402e-08
+  },
+  {
+    "mesh": "solid_022.stl",
+    "faces": 972,
+    "volume_m3": 1.6829131951619395e-07
+  },
+  {
+    "mesh": "solid_023.stl",
+    "faces": 972,
+    "volume_m3": 1.6829132028712673e-07
+  },
+  {
+    "mesh": "solid_024.stl",
+    "faces": 972,
+    "volume_m3": 1.6829132107114146e-07
+  },
+  {
+    "mesh": "solid_025.stl",
+    "faces": 628,
+    "volume_m3": 6.250819062320677e-08
+  },
+  {
+    "mesh": "solid_026.stl",
+    "faces": 628,
+    "volume_m3": 6.250819192660457e-08
+  },
+  {
+    "mesh": "solid_027.stl",
+    "faces": 628,
+    "volume_m3": 6.250819268972866e-08
+  },
+  {
+    "mesh": "solid_050.stl",
+    "faces": 752,
+    "volume_m3": 3.56644003622171e-05
+  },
+  {
+    "mesh": "solid_051.stl",
+    "faces": 500,
+    "volume_m3": 8.006209868131755e-07
+  },
+  {
+    "mesh": "solid_052.stl",
+    "faces": 500,
+    "volume_m3": 1.126487298067785e-06
+  },
+  {
+    "mesh": "solid_053.stl",
+    "faces": 368,
+    "volume_m3": 7.501924150166103e-05
+  },
+  {
+    "mesh": "solid_054.stl",
+    "faces": 820,
+    "volume_m3": 1.234191225831628e-07
+  },
+  {
+    "mesh": "solid_055.stl",
+    "faces": 820,
+    "volume_m3": 1.234191147823612e-07
+  },
+  {
+    "mesh": "solid_056.stl",
+    "faces": 820,
+    "volume_m3": 1.234191158253403e-07
+  },
+  {
+    "mesh": "solid_057.stl",
+    "faces": 820,
+    "volume_m3": 1.234191145086054e-07
+  },
+  {
+    "mesh": "solid_058.stl",
+    "faces": 820,
+    "volume_m3": 1.2341911468323924e-07
+  },
+  {
+    "mesh": "solid_059.stl",
+    "faces": 820,
+    "volume_m3": 1.234191009720983e-07
+  },
+  {
+    "mesh": "solid_060.stl",
+    "faces": 820,
+    "volume_m3": 1.234191081061578e-07
+  },
+  {
+    "mesh": "solid_061.stl",
+    "faces": 820,
+    "volume_m3": 1.2341910354894345e-07
+  },
+  {
+    "mesh": "solid_062.stl",
+    "faces": 820,
+    "volume_m3": 1.2341910391910373e-07
+  },
+  {
+    "mesh": "solid_063.stl",
+    "faces": 348,
+    "volume_m3": 2.017664056908799e-05
+  },
+  {
+    "mesh": "solid_064.stl",
+    "faces": 344,
+    "volume_m3": 6.081169382286502e-05
+  },
+  {
+    "mesh": "solid_065.stl",
+    "faces": 964,
+    "volume_m3": 6.167978073326604e-07
+  },
+  {
+    "mesh": "solid_066.stl",
+    "faces": 964,
+    "volume_m3": 6.167978125552517e-07
+  },
+  {
+    "mesh": "solid_067.stl",
+    "faces": 964,
+    "volume_m3": 6.167978078223778e-07
+  },
+  {
+    "mesh": "solid_068.stl",
+    "faces": 964,
+    "volume_m3": 6.167978142125792e-07
+  },
+  {
+    "mesh": "solid_069.stl",
+    "faces": 628,
+    "volume_m3": 6.25081895217366e-08
+  },
+  {
+    "mesh": "solid_070.stl",
+    "faces": 628,
+    "volume_m3": 6.250818981009192e-08
+  },
+  {
+    "mesh": "solid_071.stl",
+    "faces": 628,
+    "volume_m3": 6.250818934286675e-08
+  },
+  {
+    "mesh": "solid_072.stl",
+    "faces": 628,
+    "volume_m3": 6.250818816868727e-08
+  },
+  {
+    "mesh": "solid_074.stl",
+    "faces": 500,
+    "volume_m3": 1.1264873704874656e-06
+  },
+  {
+    "mesh": "solid_075.stl",
+    "faces": 500,
+    "volume_m3": 8.006210170962533e-07
+  },
+  {
+    "mesh": "solid_076.stl",
+    "faces": 820,
+    "volume_m3": 1.2341914669716267e-07
+  },
+  {
+    "mesh": "solid_077.stl",
+    "faces": 820,
+    "volume_m3": 1.234191168959015e-07
+  },
+  {
+    "mesh": "solid_078.stl",
+    "faces": 820,
+    "volume_m3": 1.234191292484974e-07
+  },
+  {
+    "mesh": "solid_079.stl",
+    "faces": 820,
+    "volume_m3": 1.234191319504556e-07
+  },
+  {
+    "mesh": "solid_080.stl",
+    "faces": 820,
+    "volume_m3": 1.234191176914685e-07
+  },
+  {
+    "mesh": "solid_081.stl",
+    "faces": 820,
+    "volume_m3": 1.2341912109445004e-07
+  },
+  {
+    "mesh": "solid_082.stl",
+    "faces": 820,
+    "volume_m3": 1.234191343844502e-07
+  },
+  {
+    "mesh": "solid_083.stl",
+    "faces": 820,
+    "volume_m3": 1.2341912212538387e-07
+  },
+  {
+    "mesh": "solid_084.stl",
+    "faces": 820,
+    "volume_m3": 1.234191177222702e-07
+  },
+  {
+    "mesh": "solid_073.stl",
+    "faces": 752,
+    "volume_m3": 3.566440430046638e-05
+  },
+  {
+    "mesh": "solid_085.stl",
+    "faces": 180,
+    "volume_m3": 6.271035768444718e-05
+  },
+  {
+    "mesh": "solid_086.stl",
+    "faces": 752,
+    "volume_m3": 3.566440257807813e-05
+  },
+  {
+    "mesh": "solid_087.stl",
+    "faces": 500,
+    "volume_m3": 1.126487305993033e-06
+  },
+  {
+    "mesh": "solid_088.stl",
+    "faces": 500,
+    "volume_m3": 8.006209923017931e-07
+  },
+  {
+    "mesh": "solid_089.stl",
+    "faces": 388,
+    "volume_m3": 9.216545951018966e-05
+  },
+  {
+    "mesh": "solid_090.stl",
+    "faces": 820,
+    "volume_m3": 1.2341912282050975e-07
+  },
+  {
+    "mesh": "solid_091.stl",
+    "faces": 820,
+    "volume_m3": 1.234191226872266e-07
+  },
+  {
+    "mesh": "solid_092.stl",
+    "faces": 820,
+    "volume_m3": 1.2341912078142086e-07
+  },
+  {
+    "mesh": "solid_093.stl",
+    "faces": 820,
+    "volume_m3": 1.234191200846519e-07
+  },
+  {
+    "mesh": "solid_094.stl",
+    "faces": 820,
+    "volume_m3": 1.2341910461433588e-07
+  },
+  {
+    "mesh": "solid_095.stl",
+    "faces": 820,
+    "volume_m3": 1.2341910730011134e-07
+  },
+  {
+    "mesh": "solid_096.stl",
+    "faces": 820,
+    "volume_m3": 1.2341910381994047e-07
+  },
+  {
+    "mesh": "solid_097.stl",
+    "faces": 820,
+    "volume_m3": 1.2341910505303362e-07
+  },
+  {
+    "mesh": "solid_098.stl",
+    "faces": 820,
+    "volume_m3": 1.234191038716514e-07
+  },
+  {
+    "mesh": "solid_099.stl",
+    "faces": 752,
+    "volume_m3": 3.566440328525443e-05
+  },
+  {
+    "mesh": "solid_100.stl",
+    "faces": 500,
+    "volume_m3": 1.1264874104477132e-06
+  },
+  {
+    "mesh": "solid_101.stl",
+    "faces": 820,
+    "volume_m3": 1.2341911160679498e-07
+  },
+  {
+    "mesh": "solid_102.stl",
+    "faces": 364,
+    "volume_m3": 4.3664279019785625e-06
+  },
+  {
+    "mesh": "solid_103.stl",
+    "faces": 234,
+    "volume_m3": 8.980497888456174e-07
+  },
+  {
+    "mesh": "solid_104.stl",
+    "faces": 234,
+    "volume_m3": 8.980498074119902e-07
+  },
+  {
+    "mesh": "solid_114.stl",
+    "faces": 332,
+    "volume_m3": 3.1072772178843735e-07
+  },
+  {
+    "mesh": "solid_115.stl",
+    "faces": 332,
+    "volume_m3": 3.1072771827903617e-07
+  },
+  {
+    "mesh": "solid_116.stl",
+    "faces": 332,
+    "volume_m3": 3.107277438319347e-07
+  },
+  {
+    "mesh": "solid_117.stl",
+    "faces": 332,
+    "volume_m3": 3.107277403224763e-07
+  },
+  {
+    "mesh": "solid_136.stl",
+    "faces": 1216,
+    "volume_m3": 1.982281899855916e-07
+  },
+  {
+    "mesh": "solid_137.stl",
+    "faces": 1216,
+    "volume_m3": 1.9822819030875152e-07
+  },
+  {
+    "mesh": "solid_138.stl",
+    "faces": 952,
+    "volume_m3": 7.972997629133507e-08
+  },
+  {
+    "mesh": "solid_139.stl",
+    "faces": 952,
+    "volume_m3": 7.972997693977591e-08
+  },
+  {
+    "mesh": "solid_140.stl",
+    "faces": 1216,
+    "volume_m3": 1.3842618739796113e-07
+  },
+  {
+    "mesh": "solid_141.stl",
+    "faces": 1216,
+    "volume_m3": 1.3842618931341868e-07
+  },
+  {
+    "mesh": "solid_142.stl",
+    "faces": 1216,
+    "volume_m3": 1.3842618268932806e-07
+  },
+  {
+    "mesh": "solid_143.stl",
+    "faces": 1216,
+    "volume_m3": 1.3842618464805364e-07
+  },
+  {
+    "mesh": "solid_145.stl",
+    "faces": 1944,
+    "volume_m3": 3.867304356673158e-05
+  },
+  {
+    "mesh": "solid_146.stl",
+    "faces": 972,
+    "volume_m3": 1.6829132944175819e-07
+  },
+  {
+    "mesh": "solid_147.stl",
+    "faces": 972,
+    "volume_m3": 1.6829133810140355e-07
+  },
+  {
+    "mesh": "solid_148.stl",
+    "faces": 972,
+    "volume_m3": 1.6829133420687269e-07
+  },
+  {
+    "mesh": "solid_149.stl",
+    "faces": 972,
+    "volume_m3": 1.682913143287544e-07
+  },
+  {
+    "mesh": "solid_105.stl",
+    "faces": 332,
+    "volume_m3": 8.474391971531847e-08
+  },
+  {
+    "mesh": "solid_106.stl",
+    "faces": 320,
+    "volume_m3": 2.7241095271532196e-06
+  },
+  {
+    "mesh": "solid_134.stl",
+    "faces": 1216,
+    "volume_m3": 2.281292005826557e-07
+  },
+  {
+    "mesh": "solid_135.stl",
+    "faces": 952,
+    "volume_m3": 7.972999148452048e-08
+  },
+  {
+    "mesh": "solid_109.stl",
+    "faces": 332,
+    "volume_m3": 8.474391952378661e-08
+  },
+  {
+    "mesh": "solid_112.stl",
+    "faces": 340,
+    "volume_m3": 7.453413125554519e-07
+  },
+  {
+    "mesh": "solid_126.stl",
+    "faces": 1216,
+    "volume_m3": 2.580301902588663e-07
+  },
+  {
+    "mesh": "solid_128.stl",
+    "faces": 952,
+    "volume_m3": 7.972998475264356e-08
+  },
+  {
+    "mesh": "solid_113.stl",
+    "faces": 280,
+    "volume_m3": 3.9456949650766646e-06
+  },
+  {
+    "mesh": "solid_119.stl",
+    "faces": 1216,
+    "volume_m3": 1.9822819489643634e-07
+  },
+  {
+    "mesh": "solid_120.stl",
+    "faces": 952,
+    "volume_m3": 7.972999505708074e-08
+  },
+  {
+    "mesh": "solid_122.stl",
+    "faces": 952,
+    "volume_m3": 7.973001305495007e-08
+  },
+  {
+    "mesh": "solid_123.stl",
+    "faces": 1216,
+    "volume_m3": 2.580302764079844e-07
+  },
+  {
+    "mesh": "solid_131.stl",
+    "faces": 1216,
+    "volume_m3": 2.5803019963591996e-07
+  },
+  {
+    "mesh": "solid_132.stl",
+    "faces": 952,
+    "volume_m3": 7.972998052111766e-08
+  },
+  {
+    "mesh": "solid_107.stl",
+    "faces": 320,
+    "volume_m3": 2.7241094611311696e-06
+  },
+  {
+    "mesh": "solid_144.stl",
+    "faces": 500,
+    "volume_m3": 1.1264873483454548e-06
+  },
+  {
+    "mesh": "solid_150.stl",
+    "faces": 820,
+    "volume_m3": 1.2341911940132814e-07
+  },
+  {
+    "mesh": "solid_151.stl",
+    "faces": 820,
+    "volume_m3": 1.234191165341796e-07
+  },
+  {
+    "mesh": "solid_152.stl",
+    "faces": 820,
+    "volume_m3": 1.2341910822843324e-07
+  },
+  {
+    "mesh": "solid_108.stl",
+    "faces": 332,
+    "volume_m3": 8.474390804447532e-08
+  },
+  {
+    "mesh": "solid_110.stl",
+    "faces": 340,
+    "volume_m3": 7.4534124302974e-07
+  },
+  {
+    "mesh": "solid_127.stl",
+    "faces": 1216,
+    "volume_m3": 2.5803019012028735e-07
+  },
+  {
+    "mesh": "solid_129.stl",
+    "faces": 952,
+    "volume_m3": 7.972998402168974e-08
+  },
+  {
+    "mesh": "solid_111.stl",
+    "faces": 276,
+    "volume_m3": 3.945695078222254e-06
+  },
+  {
+    "mesh": "solid_118.stl",
+    "faces": 1216,
+    "volume_m3": 1.9822819280831674e-07
+  },
+  {
+    "mesh": "solid_121.stl",
+    "faces": 952,
+    "volume_m3": 7.972999759534334e-08
+  },
+  {
+    "mesh": "solid_124.stl",
+    "faces": 1216,
+    "volume_m3": 2.580302965518089e-07
+  },
+  {
+    "mesh": "solid_125.stl",
+    "faces": 952,
+    "volume_m3": 7.973001514722822e-08
+  },
+  {
+    "mesh": "solid_130.stl",
+    "faces": 1216,
+    "volume_m3": 2.5803022044726113e-07
+  },
+  {
+    "mesh": "solid_133.stl",
+    "faces": 952,
+    "volume_m3": 7.972997885049231e-08
+  }
+]

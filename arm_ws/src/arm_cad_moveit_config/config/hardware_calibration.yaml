@@ -1,0 +1,43 @@
+calibration_verified: false
+joints:
+  base_joint:
+    raw_zero: 1600
+    radians_per_raw: -0.00235619449
+    raw_min: 500
+    raw_max: 2500
+  shoulder_joint:
+    raw_zero: 1500
+    radians_per_raw: 0.00235619449
+    raw_min: 700
+    raw_max: 2300
+  elbow_joint:
+    raw_zero: 1500
+    radians_per_raw: -0.00235619449
+    raw_min: 500
+    raw_max: 2500
+  wrist_pitch_joint:
+    raw_zero: 1500
+    radians_per_raw: 0.00235619449
+    raw_min: 500
+    raw_max: 2500
+  wrist_rotation_joint:
+    raw_zero: 1500
+    radians_per_raw: -0.00235619449
+    raw_min: 500
+    raw_max: 2500
+  gripper_drive_joint:
+    raw_zero: 1500
+    radians_per_raw: 0.00235619449
+    raw_min: 1100
+    raw_max: 1770
+calibration_notes:
+  gripper_zero: User confirmed raw 1500 is CAD zero on 2026-11-26
+  scale_and_direction: Magnitude retained at 0.00235619449 rad/raw; 005 gripper mapping
+    unchanged. Both command inverse and measured feedback use the same signed scale.
+  arm: '2026-11-27: reversed 000-004 raw-to-angle signs per user report that all arm
+    joints move opposite the accepted CAD model. CAD axes, zero values and raw limits
+    unchanged.'
+  verification: '2026-11-27: corrected mapping loaded with real feedback. User explicitly
+    requested enabling motion control. Post-correction independent motion verification
+    remains pending; calibration_verified stays false.'
+mapping_accepted_for_control: true
